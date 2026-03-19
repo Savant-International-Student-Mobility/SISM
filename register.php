@@ -1,0 +1,230 @@
+<?php
+session_start();
+require_once 'db.php';
+
+$error = '';
+$success = '';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Nilagyan natin ng try-catch para saluhin ang anumang database error
+    try {
+        $first_name = $_POST['first_name'];
+        $last_name = $_POST['last_name'];
+        $email = $_POST['email'];
+        $phone = $_POST['phone'];
+        $password = $_POST['password'];
+        $confirm_password = $_POST['confirm_password'];
+
+        if ($password !== $confirm_password) {
+            $error = "Passwords do not match!";
+        } else {
+            // Check if email already exists
+            $stmt = $conn->prepare("SELECT id FROM users WHERE email = ?");
+            $stmt->execute([$email]);
+            if ($stmt->rowCount() > 0) {
+                $error = "Email is already registered!";
+            } else {
+                // Hash the password for security
+                $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+                
+                // Insert new user
+                $insert = $conn->prepare("INSERT INTO users (first_name, last_name, email, phone, password) VALUES (?, ?, ?, ?, ?)");
+                if ($insert->execute([$first_name, $last_name, $email, $phone, $hashed_password])) {
+                    $success = "Registration successful! You can now login.";
+                } else {
+                    $error = "Something went wrong. Please try again.";
+                }
+            }
+        }
+    } catch (PDOException $e) {
+        // DITO NATIN MAKIKITA KUNG MAY MALI SA DATABASE MO
+        $error = "Database Error: " . $e->getMessage();
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAVANT - Register</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <style>
+    * {
+      font-family: 'Poppins', sans-serif !important;
+    }
+
+    body,
+    html {
+      height: 100%;
+      margin: 0;
+      overflow-x: hidden;
+    }
+
+    .main-container {
+      position: relative;
+      min-height: 100vh;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 50px 20px;
+    }
+
+    .btn-back-circle {
+      position: fixed;
+      top: 30px;
+      left: 30px;
+      width: 50px;
+      height: 50px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-decoration: none;
+      z-index: 100;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-back-circle:hover {
+      background: rgba(255, 255, 255, 0.2);
+      color: #087830;
+      transform: scale(1.1);
+    }
+
+    .glass-card {
+      background: rgba(47, 45, 45, 0.1);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 30px;
+      padding: 60px;
+      width: 100%;
+      max-width: 1100px;
+      color: white;
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    }
+
+    .form-control-glass {
+      background: rgba(255, 255, 255, 0.15) !important;
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+      color: white !important;
+      padding: 12px 15px;
+      border-radius: 10px;
+    }
+
+    .btn-register {
+      background-color: #087830;
+      border: none;
+      padding: 14px;
+      font-weight: 600;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-register:hover {
+      background-color: #146c3a;
+      transform: translateY(-2px);
+    }
+
+    .brand-logo {
+      width: 300px;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .btn-back-circle {
+        top: 20px;
+        left: 20px;
+        width: 40px;
+        height: 40px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a href="index.php" class="btn-back-circle" title="Go Back">
+    <i class="bi bi-chevron-left fs-4"></i>
+  </a>
+  <div class="main-container">
+    <img src="img/bg.png" class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover" style="z-index: -2;">
+    <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50" style="z-index: -1;"></div>
+    <div class="glass-card">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-5 text-center d-flex flex-column align-items-center justify-content-center">
+          <img src="img/logo.png" class="brand-logo mx-auto">
+          <h1 class="fw-bold mb-2 display-6 w-100">Register Now</h1>
+          <p class="mb-0 w-100">
+            <span class="fst-italic small opacity-75">"Please enter the following information"</span>
+          </p>
+        </div>
+        <div class="col-lg-7">
+          
+          <?php if($error): ?>
+              <div class="alert alert-danger py-2 mb-4 small"><?php echo $error; ?></div>
+          <?php endif; ?>
+          <?php if($success): ?>
+              <div class="alert alert-success py-2 mb-4 small"><?php echo $success; ?></div>
+          <?php endif; ?>
+
+          <form action="register.php" method="POST">
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label class="small mb-1">First Name</label>
+                <input type="text" name="first_name" class="form-control form-control-glass" placeholder="First name" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="small mb-1">Last Name</label>
+                <input type="text" name="last_name" class="form-control form-control-glass" placeholder="Last name" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label class="small mb-1">Email Address</label>
+                <input type="email" name="email" class="form-control form-control-glass" placeholder="email@example.com" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="small mb-1">Phone Number</label>
+                <input type="tel" name="phone" class="form-control form-control-glass" placeholder="+63 9xx xxx xxxx" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label class="small mb-1">Password</label>
+                <input type="password" name="password" class="form-control form-control-glass" required>
+              </div>
+              <div class="col-md-6 mb-4">
+                <label class="small mb-1">Confirm Password</label>
+                <input type="password" name="confirm_password" class="form-control form-control-glass" required>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-register w-100 text-white shadow-sm">
+              CREATE ACCOUNT
+            </button>
+            <p class="text-center small mt-4 mb-0 text-white-50">
+              Already have an account? <a href="login.php" class="text-white fw-bold text-decoration-none">Login
+                here</a>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
