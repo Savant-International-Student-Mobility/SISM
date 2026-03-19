@@ -125,7 +125,7 @@
 </head>
 
 <body>
-  <a href="login.html" class="btn-back-circle" title="Back to Login">
+  <a href="login.php" class="btn-back-circle" title="Back to Login">
     <i class="bi bi-chevron-left fs-4"></i>
   </a>
 
