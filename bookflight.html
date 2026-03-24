@@ -3,8 +3,8 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>RAIS Forms</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RAIS Book Flight</title>
   <link rel="icon" href="../img/logoulit.png" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -32,6 +32,11 @@
       /* Prevent body scroll */
     }
 
+    .main-wrapper {
+      display: flex;
+      height: 100vh;
+    }
+
     ::-webkit-scrollbar {
       width: 12px;
     }
@@ -49,11 +54,6 @@
       background: linear-gradient(to bottom, #023621, #2a7c2a);
     }
 
-
-    .main-wrapper {
-      display: flex;
-      height: 100vh;
-    }
 
     /* Sidebar Styles */
     .sidebar {
@@ -107,8 +107,8 @@
       transition: background-color 0.3s ease;
     }
 
-    .sidebar .nav-link.active,
-    .sidebar .nav-link:hover {
+    .sidebar .nav-link:hover,
+    .sidebar .nav-link.active {
       background-color: #14552b;
     }
 
@@ -211,19 +211,6 @@
     .main-content {
       flex-grow: 1;
       padding: 30px;
-      animation: fadeIn 0.5s ease-in-out;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
     }
 
     .main-content h1 {
@@ -232,54 +219,23 @@
       margin-bottom: 20px;
     }
 
-    .content-placeholder {
+    .content-card {
       background-color: var(--rais-card-bg);
       border-radius: 12px;
       box-shadow: var(--rais-shadow);
       padding: 30px;
     }
 
-    .form-card {
-      transition: transform 0.2s;
+    .flight-form-card .form-label {
+      font-weight: 600;
     }
 
-    .form-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .btn-form-action {
-      color: var(--rais-primary-green);
-      border-color: var(--rais-primary-green);
-    }
-
-    .btn-form-action:hover {
-      background-color: var(--rais-primary-green);
-      color: white;
-    }
-
-    /* Floating Button */
-    .floating-btn {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
+    .flight-form-card .btn-primary {
       background-color: var(--rais-button-maroon);
-      color: white;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      text-decoration: none;
+      border: none;
       transition: background-color 0.2s;
-      z-index: 100;
     }
 
-    .floating-btn:hover {
-      background-color: var(--rais-dark-green);
-    }
 
     /* Collapsible Chatbox */
     .chat-container {
@@ -365,6 +321,10 @@
       margin-top: 0.25rem;
     }
 
+    .dark-mode .chat-message-bubble .timestamp {
+      color: #bbb;
+    }
+
     .chat-message-bubble.user {
       background-color: var(--rais-primary-green);
       color: white;
@@ -379,10 +339,15 @@
       border-bottom-left-radius: 0.25rem;
     }
 
+    .dark-mode .chat-message-bubble.admin {
+      background-color: #333;
+      color: #EAEAEA;
+    }
+
     .chat-toggle-btn {
       position: fixed;
       bottom: 30px;
-      right: 100px;
+      right: 30px;
       background-color: var(--rais-button-maroon);
       color: white;
       border-radius: 50%;
@@ -448,6 +413,18 @@
     }
 
     /* Dark Mode Styles */
+    .dark-mode-logo {
+      display: none;
+    }
+
+    .dark-mode .light-mode-logo {
+      display: none;
+    }
+
+    .dark-mode .dark-mode-logo {
+      display: block;
+    }
+
     body.dark-mode {
       background-color: #121212;
       color: #EAEAEA;
@@ -459,7 +436,7 @@
     }
 
     .dark-mode .header,
-    .dark-mode .card,
+    .dark-mode .content-card,
     .dark-mode .chat-container,
     .dark-mode #full-screen-chat,
     .dark-mode .chat-footer-fullscreen,
@@ -469,6 +446,55 @@
       border-color: #2c2c2c;
     }
 
+    .dark-mode .header {
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .dark-mode .header-title,
+    .dark-mode h1,
+    .dark-mode h5,
+    .dark-mode .user-status .me-3,
+    .dark-mode .chat-title-fullscreen {
+      color: #EAEAEA !important;
+    }
+
+    .dark-mode .form-control {
+      background-color: #2a2a2a;
+      color: #EAEAEA;
+      border-color: #3c3c3c;
+    }
+
+    .dark-mode .form-control:focus {
+      background-color: #2a2a2a;
+      color: #EAEAEA;
+      border-color: var(--rais-primary-green);
+      box-shadow: 0 0 0 0.25rem rgba(0, 77, 64, 0.5);
+    }
+
+    .dark-mode .form-control::placeholder {
+      color: #888;
+    }
+
+    .dark-mode .chat-body {
+      background-color: #121212;
+    }
+
+    .dark-mode .chat-body .text-muted,
+    .dark-mode .chat-body-fullscreen .text-muted {
+      color: #EAEAEA !important;
+    }
+
+    .dark-mode .chat-footer .btn i,
+    .dark-mode .chat-footer-fullscreen .btn i {
+      color: #EAEAEA;
+    }
+
+    .dark-mode .btn-close {
+      filter: invert(1) grayscale(100%) brightness(200%);
+    }
+
+
+    /* Responsive Design */
     @media (max-width: 992px) {
       body {
         padding-top: 60px;
@@ -493,39 +519,82 @@
         left: 0;
         right: 0;
         z-index: 1030;
-        height: 60px;
+      }
+
+      .header .logo-img {
+        height: 120px;
+        width: 120px;
       }
 
       .header-title {
         display: none;
       }
 
+      .main-content {
+        padding-top: 15px;
+      }
+
+      /* Transform sidebar into a bottom navigation bar */
       .sidebar {
         width: 100%;
         height: 50px;
         position: fixed;
+        top: auto;
         bottom: 0;
         left: 0;
         z-index: 1029;
         flex-direction: row;
         align-items: center;
         padding: 0;
+        transition: none;
+        overflow: hidden;
+      }
+
+      .sidebar:hover {
+        width: 100%;
       }
 
       .sidebar .logo,
-      .sidebar .footer-text {
+      .sidebar .footer-text,
+      .profile-section {
         display: none;
       }
 
       .sidebar .nav {
         display: flex;
         flex-direction: row;
+        align-items: center;
+        height: 100%;
         width: 100%;
         justify-content: space-around;
       }
 
-      .sidebar .nav-link span {
+      .sidebar .nav-link {
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+        padding: 0 5px;
+        gap: 0;
+        height: 100%;
+      }
+
+      .sidebar .nav-link:hover {
+        background-color: var(--rais-dark-green);
+      }
+
+      .sidebar .nav-link i {
+        font-size: 1.5rem;
+        margin-bottom: 0;
+      }
+
+      .sidebar .nav-link span,
+      .sidebar:hover .nav-link span {
         display: none;
+      }
+
+      .chat-toggle-btn {
+        bottom: 80px;
+        right: 15px;
       }
 
       .chat-container {
@@ -535,7 +604,7 @@
   </style>
 </head>
 
-<body class="">
+<body>
   <div class="main-wrapper">
     <aside class="sidebar d-flex flex-column">
       <div class="logo">SAVANT</div>
@@ -546,7 +615,7 @@
         <a class="nav-link" href="statement.html"><i class="bi bi-receipt"></i><span>Statement of
             Account</span></a>
         <a class="nav-link" href="documents.html"><i class="bi bi-file-earmark-text"></i><span>Documents</span></a>
-        <a class="nav-link active" href="#"><i class="bi bi-journal-text"></i><span>Forms</span></a>
+        <a class="nav-link" href="forms.html"><i class="bi bi-journal-text"></i><span>Forms</span></a>
         <a class="nav-link" href="notifications.html"><i class="bi bi-bell"></i><span>Notifications</span></a>
         <a class="nav-link" href="settings.html"><i class="bi bi-gear"></i><span>Settings</span></a>
         <a class="nav-link" href="profile.html"><i class="bi bi-person-circle"></i><span>Profile</span></a>
@@ -574,25 +643,51 @@
       </div>
 
       <main class="main-content">
-        <h1>Forms</h1>
-        <div class="row g-4">
-          <div class="col-12 col-md-6 col-lg-4">
-            <div class="card form-card h-100">
-              <div class="card-body">
-                <h5 class="card-title">Application Form</h5>
-                <p class="card-text text-muted">Complete this form and apply in our services.</p>
-                <a href="../application-form.php" class="btn btn-sm btn-outline-secondary btn-form-action">Fill Out</a>
-              </div>
+        <h1>Let us help you plan your trip!</h1>
+        <div class="row g-4 justify-content-center">
+          <div class="col-12 col-lg-8">
+            <div class="content-card flight-form-card">
+              <h5 class="mb-4">Fill out the form to plan your flight.</h5>
+
+              <form action="" method="post">
+                <div class="row g-3 mb-3">
+                  <div class="col-12 col-md-6">
+                    <label for="firstName" class="form-label">First Name</label>
+                    <input type="text" class="form-control" id="firstName" value="" required>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label for="lastName" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" id="lastName" value="" required>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email Address</label>
+                  <input type="email" class="form-control" id="email" value="" required>
+                </div>
+                <div class="mb-3">
+                  <label for="departureDate" class="form-label">Departure Date</label>
+                  <input type="date" class="form-control" id="departureDate" name="departureDate" required>
+                </div>
+                <div class="mb-3">
+                  <label for="departureLocation" class="form-label">Departure Location</label>
+                  <input type="text" class="form-control" id="departureLocation"
+                    name="departureLocation" required>
+                </div>
+                <div class="mb-3">
+                  <label for="destination" class="form-label">Destination</label>
+                  <input type="text" class="form-control" id="destination"
+                    name="destination" required>
+                </div>
+                <div class="d-grid mt-4">
+                  <button type="submit" class="btn btn-primary">Book Now</button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
       </main>
     </div>
   </div>
-
-  <a href="bookflight.html" class="floating-btn text-decoration-none">
-    <i class="bi bi-plus-lg"></i>
-  </a>
 
   <div class="chat-container" id="chatContainer">
     <div class="chat-header d-flex justify-content-between align-items-center" onclick="toggleChat()">
@@ -604,7 +699,8 @@
     </div>
     <div class="chat-footer">
       <div class="input-group">
-        <input type="text" class="form-control message-input" placeholder="Type a message...">
+        <input type="text" class="form-control message-input" placeholder="Type a message..."
+          aria-label="Message input">
         <button class="btn btn-outline-secondary" type="button" id="send-button-popup">
           <i class="bi bi-send-fill"></i>
         </button>
@@ -622,7 +718,8 @@
     </div>
     <div class="chat-footer-fullscreen">
       <div class="input-group">
-        <input type="text" class="form-control message-input" placeholder="Type a message...">
+        <input type="text" class="form-control message-input" placeholder="Type a message..."
+          aria-label="Message input">
         <button class="btn btn-outline-secondary" type="button" id="send-button-fullscreen">
           <i class="bi bi-send-fill"></i>
         </button>
@@ -656,6 +753,7 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
+      // Update the date dynamically in the header with the new format
       document.getElementById('headerDate').textContent = new Date().toLocaleDateString('en-US', {
         month: 'long',
         day: 'numeric',
@@ -668,7 +766,7 @@
       const popupChatContainer = document.getElementById('chatContainer');
       const fullScreenChat = document.getElementById('full-screen-chat');
 
-      function originalToggleChat() {
+      function toggleChat() {
         if (window.innerWidth <= 992) {
           const isChatVisible = fullScreenChat.style.display === 'flex';
           if (isChatVisible) {
@@ -687,8 +785,103 @@
         }
       }
 
-      window.toggleChat = originalToggleChat;
-      document.getElementById('backToDashboardBtn').addEventListener('click', originalToggleChat);
+      // Make toggleChat globally accessible
+      window.toggleChat = toggleChat;
+      document.getElementById('backToDashboardBtn').addEventListener('click', toggleChat);
+
+      // --- CHAT LOGIC ---
+      const chatBodyPopup = document.querySelector('#chatContainer .chat-body');
+      const chatBodyFullscreen = document.querySelector('#full-screen-chat .chat-body-fullscreen');
+      const messageInputs = document.querySelectorAll('.message-input');
+      const sendButtons = [document.getElementById('send-button-popup'), document.getElementById('send-button-fullscreen')];
+      let messagePollingInterval;
+
+      function renderMessages(messages) {
+        const messageHtml = messages.map(msg => {
+          const isUser = true; // Placeholder logic
+          const senderName = isUser ? "You" : "RAIS Support";
+          const bubbleClass = isUser ? 'user' : 'admin';
+          const formattedTimestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+          return `
+                        <div class="chat-message-bubble ${bubbleClass}">
+                            <div class="sender-name">${senderName}</div>
+                            <div class="chat-message-content">${msg.message}</div>
+                            <span class="timestamp">${formattedTimestamp}</span>
+                        </div>
+                    `;
+        }).join('');
+
+        const welcomeMessage = '<div class="text-center text-muted small mb-2">This is RAIS how may i help you today?</div>';
+
+        chatBodyPopup.innerHTML = welcomeMessage + messageHtml;
+        chatBodyFullscreen.innerHTML = welcomeMessage + messageHtml;
+
+        chatBodyPopup.scrollTop = chatBodyPopup.scrollHeight;
+        chatBodyFullscreen.scrollTop = chatBodyFullscreen.scrollHeight;
+      }
+
+      async function fetchMessages() {
+        try {
+          const response = await fetch('chat_handler.php?action=getMessages');
+          if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+          const data = await response.json();
+          if (data.status === 'success') {
+            renderMessages(data.messages);
+          }
+        } catch (error) {
+          console.error('Error fetching messages:', error);
+        }
+      }
+
+      async function sendMessage() {
+        const input = Array.from(messageInputs).find(i => i.value.trim() !== '');
+        if (!input) return;
+
+        const message = input.value.trim();
+        const formData = new FormData();
+        formData.append('action', 'sendMessage');
+        formData.append('message', message);
+
+        try {
+          const response = await fetch('chat_handler.php', {
+            method: 'POST',
+            body: formData
+          });
+          const data = await response.json();
+
+          if (data.status === 'success') {
+            messageInputs.forEach(i => i.value = '');
+            fetchMessages();
+          }
+        } catch (error) {
+          console.error('Error sending message:', error);
+        }
+      }
+
+      sendButtons.forEach(button => button.addEventListener('click', sendMessage));
+      messageInputs.forEach(input => {
+        input.addEventListener('keypress', (e) => {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            sendMessage();
+          }
+        });
+      });
+
+      const originalToggleChat = window.toggleChat;
+      window.toggleChat = function () {
+        originalToggleChat();
+        const isChatVisible = popupChatContainer.classList.contains('show') || fullScreenChat.style.display === 'flex';
+
+        if (isChatVisible && !messagePollingInterval) {
+          fetchMessages();
+          messagePollingInterval = setInterval(fetchMessages, 5000);
+        } else if (!isChatVisible && messagePollingInterval) {
+          clearInterval(messagePollingInterval);
+          messagePollingInterval = null;
+        }
+      };
     });
   </script>
 </body>
