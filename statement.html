@@ -13,8 +13,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --rais-primary-green: #004d40;
-      --rais-dark-green: #00332c;
+      --rais-primary-green: #087830;
+      --rais-dark-green: #087830;
       --rais-text-dark: #333333;
       --rais-text-light: #525252;
       --rais-card-bg: #FFFFFF;
@@ -57,7 +57,7 @@
 
     /* Sidebar Styles */
     .sidebar {
-      background-color: var(--rais-primary-green);
+      background-color: #087830;
       width: 70px;
       flex-shrink: 0;
       color: white;
@@ -109,7 +109,7 @@
 
     .sidebar .nav-link.active,
     .sidebar .nav-link:hover {
-      background-color: var(--rais-dark-green);
+      background-color: #14552b;
     }
 
     .sidebar .nav-link i {
@@ -436,10 +436,6 @@
       margin-top: 0.25rem;
     }
 
-    .dark-mode .chat-message-bubble .timestamp {
-      color: #bbb;
-    }
-
     .chat-message-bubble.user {
       background-color: var(--rais-primary-green);
       color: white;
@@ -454,109 +450,6 @@
       border-bottom-left-radius: 0.25rem;
     }
 
-    .dark-mode .chat-message-bubble.admin {
-      background-color: #333;
-      color: #EAEAEA;
-    }
-
-    /* Dark Mode Styles */
-    .dark-mode-logo {
-      display: none;
-    }
-
-    .dark-mode .light-mode-logo {
-      display: none;
-    }
-
-    .dark-mode .dark-mode-logo {
-      display: block;
-    }
-
-    body.dark-mode {
-      background-color: #121212;
-      color: #FFFFFF;
-    }
-
-    .dark-mode .sidebar {
-      background-color: #1a1a1a;
-      border-right: 1px solid #2c2c2c;
-    }
-
-    .dark-mode .header,
-    .dark-mode .chat-container,
-    .dark-mode #full-screen-chat,
-    .dark-mode .chat-footer-fullscreen,
-    .dark-mode .modal-content {
-      background-color: #1e1e1e;
-      color: #FFFFFF;
-      border-color: #2c2c2c;
-    }
-
-    .dark-mode .header {
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    }
-
-    .dark-mode .header-title,
-    .dark-mode h1,
-    .dark-mode .user-status .me-3,
-    .dark-mode .chat-title-fullscreen {
-      color: #FFFFFF !important;
-    }
-
-    .dark-mode .table {
-      background-color: #1e1e1e;
-      color: #FFFFFF;
-    }
-
-    .dark-mode .table th,
-    .dark-mode .table td {
-      color: #FFFFFF;
-    }
-
-    .dark-mode .table-hover>tbody>tr:hover>* {
-      background-color: #2c2c2c;
-    }
-
-    .dark-mode .table-light {
-      --bs-table-bg: #2a2a2a;
-      --bs-table-border-color: #3c3c3c;
-      color: #FFFFFF;
-    }
-
-    .dark-mode .main-content h1,
-    .dark-mode .summary-card {
-      color: #FFFFFF;
-    }
-
-    .dark-mode .chat-body {
-      background-color: #121212;
-    }
-
-    .dark-mode .chat-body .text-muted,
-    .dark-mode .chat-body-fullscreen .text-muted {
-      color: #EAEAEA !important;
-    }
-
-    .dark-mode .form-control {
-      background-color: #2a2a2a;
-      color: #EAEAEA;
-      border-color: #3c3c3c;
-    }
-
-    .dark-mode .form-control::placeholder {
-      color: #888;
-    }
-
-    .dark-mode .chat-footer .btn i,
-    .dark-mode .chat-footer-fullscreen .btn i {
-      color: #EAEAEA;
-    }
-
-    .dark-mode .btn-close {
-      filter: invert(1) grayscale(100%) brightness(200%);
-    }
-
-    /* Responsive Design */
     @media (max-width: 992px) {
       body {
         padding-top: 60px;
@@ -583,20 +476,10 @@
         z-index: 1030;
       }
 
-      .header .logo-img {
-        height: 120px;
-        width: 120px;
-      }
-
       .header-title {
         display: none;
       }
 
-      .main-content {
-        padding-top: 15px;
-      }
-
-      /* Transform sidebar into a bottom navigation bar */
       .sidebar {
         width: 100%;
         height: 50px;
@@ -641,10 +524,6 @@
         height: 100%;
       }
 
-      .sidebar .nav-link:hover {
-        background-color: var(--rais-dark-green);
-      }
-
       .sidebar .nav-link i {
         font-size: 1.5rem;
         margin-bottom: 0;
@@ -672,35 +551,34 @@
   </style>
 </head>
 
-<body>
+<body class="">
   <div class="main-wrapper">
     <aside class="sidebar d-flex flex-column">
-      <div class="logo">RAIS</div>
+      <div class="logo">SAVANT</div>
       <nav class="nav flex-column">
         <a class="nav-link" href="dashboard.html"><i class="bi bi-house-door-fill"></i><span>Dashboard</span></a>
         <a class="nav-link" href="booking.html"><i class="bi bi-calendar-check"></i><span>Book
             Consultation</span></a>
-        <a class="nav-link active" href=""><i class="bi bi-receipt"></i><span>Statement of
+        <a class="nav-link active" href="#"><i class="bi bi-receipt"></i><span>Statement of
             Account</span></a>
-        <a class="nav-link" href="documents.php"><i class="bi bi-file-earmark-text"></i><span>Documents</span></a>
-        <a class="nav-link" href="forms.php"><i class="bi bi-journal-text"></i><span>Forms</span></a>
-        <a class="nav-link" href="notifications.php"><i class="bi bi-bell"></i><span>Notifications</span></a>
-        <a class="nav-link" href="settings.php"><i class="bi bi-gear"></i><span>Settings</span></a>
-        <a class="nav-link" href="profile.php"><i class="bi bi-person-circle"></i><span>Profile</span></a>
+        <a class="nav-link" href="documents.html"><i class="bi bi-file-earmark-text"></i><span>Documents</span></a>
+        <a class="nav-link" href="forms.html"><i class="bi bi-journal-text"></i><span>Forms</span></a>
+        <a class="nav-link" href="notifications.html"><i class="bi bi-bell"></i><span>Notifications</span></a>
+        <a class="nav-link" href="settings.html"><i class="bi bi-gear"></i><span>Settings</span></a>
+        <a class="nav-link" href="profile.html"><i class="bi bi-person-circle"></i><span>Profile</span></a>
       </nav>
 
       <div class="mt-auto footer-text">
-        &copy; RAIS
+        &copy; 2026 RAIS
       </div>
     </aside>
 
     <div class="content-area">
       <div class="header">
         <div class="header-brand d-flex align-items-center">
-          <img src="../img/logo.png" alt="RAIS Logo" class="header-logo-img light-mode-logo">
-          <img src="../img/logo1.png" alt="RAIS Logo Dark" class="header-logo-img dark-mode-logo"
-            onerror="this.style.display='none'">
-          <span class="header-title">Roman & Associates Immigration Services</span>
+          <img src="" alt="RAIS Logo" class="header-logo-img light-mode-logo">
+          <img src="" alt="RAIS Logo Dark" class="header-logo-img dark-mode-logo">
+          <span class="header-title">Savant-International Student Mobility</span>
         </div>
         <div class="user-status d-flex align-items-center gap-2">
           <div id="headerDate" class="me-3" style="font-weight: 500;"></div>
@@ -711,13 +589,6 @@
       </div>
 
       <main class="main-content">
-        <div class="d-flex justify-content-between align-items-center">
-          <h1>Statement of Account</h1>
-          <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#paymentModal">
-            <i class="bi bi-wallet2 me-2"></i>Pay with Dragonpay
-          </button>
-        </div>
-
         <div class="row">
           <div class="col-md-6 mb-4">
             <div class="summary-card">
@@ -783,7 +654,7 @@
       <span class="chat-title-fullscreen"><i class="bi bi-chat-dots-fill me-2"></i>Live Chat</span>
     </div>
     <div class="chat-body-fullscreen">
-      <div class="text-center text-muted">RAIS Support, how may I help you?</div>
+      <div class="text-center text-muted">Savant Support, how may I help you?</div>
     </div>
     <div class="chat-footer-fullscreen">
       <div class="input-group">
@@ -854,7 +725,6 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      // Update the date dynamically in the header
       document.getElementById('headerDate').textContent = new Date().toLocaleDateString('en-US', {
         month: 'long',
         day: 'numeric',
@@ -866,13 +736,8 @@
       const chatToggleBtn = document.querySelector('.chat-toggle-btn');
       const popupChatContainer = document.getElementById('chatContainer');
       const fullScreenChat = document.getElementById('full-screen-chat');
-      const chatBodyPopup = document.querySelector('#chatContainer .chat-body');
-      const chatBodyFullscreen = document.querySelector('#full-screen-chat .chat-body-fullscreen');
-      const messageInputs = document.querySelectorAll('.message-input');
-      const sendButtons = document.querySelectorAll('#send-button-popup, #send-button-fullscreen');
-      let messagePollingInterval;
 
-      function originalToggleChat() {
+      function toggleChat() {
         if (window.innerWidth <= 992) {
           const isChatVisible = fullScreenChat.style.display === 'flex';
           if (isChatVisible) {
@@ -891,96 +756,13 @@
         }
       }
 
-      window.toggleChat = function () {
-        originalToggleChat();
-        const isChatVisible = popupChatContainer.classList.contains('show') || fullScreenChat.style.display === 'flex';
-
-        if (isChatVisible && !messagePollingInterval) {
-          fetchMessages();
-          messagePollingInterval = setInterval(fetchMessages, 5000);
-        } else if (!isChatVisible && messagePollingInterval) {
-          clearInterval(messagePollingInterval);
-          messagePollingInterval = null;
-        }
-      };
+      window.toggleChat = toggleChat;
 
       if (document.getElementById('backToDashboardBtn')) {
         document.getElementById('backToDashboardBtn').addEventListener('click', window.toggleChat);
       }
-
-      function renderMessages(messages) {
-        const messageHtml = messages.map(msg => {
-          const isUser = msg.sender_id == "current_user_id"; // Placeholder
-          const senderName = isUser ? "You" : "RAIS Support";
-          const bubbleClass = isUser ? 'user' : 'admin';
-          const formattedTimestamp = new Date(msg.timestamp.replace(' ', 'T') + 'Z').toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-
-          return `
-                        <div class="chat-message-bubble ${bubbleClass}">
-                            <div class="sender-name">${senderName}</div>
-                            <div class="chat-message-content">${msg.message}</div>
-                            <span class="timestamp">${formattedTimestamp}</span>
-                        </div>
-                    `;
-        }).join('');
-
-        const welcomeMessage = '<div class="text-center text-muted small mb-2">This is RAIS how may i help you today?</div>';
-
-        chatBodyPopup.innerHTML = welcomeMessage + messageHtml;
-        chatBodyFullscreen.innerHTML = welcomeMessage + messageHtml;
-
-        chatBodyPopup.scrollTop = chatBodyPopup.scrollHeight;
-        chatBodyFullscreen.scrollTop = chatBodyFullscreen.scrollHeight;
-      }
-
-      async function fetchMessages() {
-        try {
-          const response = await fetch('chat_handler.php?action=getMessages');
-          if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-          const data = await response.json();
-          if (data.status === 'success') {
-            renderMessages(data.messages);
-          }
-        } catch (error) {
-          console.error('Error fetching messages:', error);
-        }
-      }
-
-      async function sendMessage() {
-        const input = Array.from(messageInputs).find(i => i.value.trim() !== '');
-        if (!input) return;
-
-        const message = input.value.trim();
-        const formData = new FormData();
-        formData.append('action', 'sendMessage');
-        formData.append('message', message);
-
-        try {
-          const response = await fetch('chat_handler.php', {
-            method: 'POST',
-            body: formData
-          });
-          if (response.ok) {
-            messageInputs.forEach(i => i.value = '');
-            fetchMessages();
-          }
-        } catch (error) {
-          console.error('Error sending message:', error);
-        }
-      }
-
-      sendButtons.forEach(button => button.addEventListener('click', sendMessage));
-      messageInputs.forEach(input => {
-        input.addEventListener('keypress', (e) => {
-          if (e.key === 'Enter') {
-            e.preventDefault();
-            sendMessage();
-          }
-        });
-      });
     });
   </script>
-
 </body>
 
 </html>

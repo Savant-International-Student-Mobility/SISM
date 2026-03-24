@@ -13,14 +13,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --rais-primary-green: #004d40;
-      --rais-dark-green: #00332c;
+      --rais-primary-green: #087830;
+      --rais-dark-green: #087830;
       --rais-text-dark: #333333;
       --rais-text-light: #525252;
       --rais-card-bg: #FFFFFF;
       --rais-light-gray: #E8E8E8;
       --rais-progress-bg: #D9D9D9;
-      --rais-progress-active: var(--rais-primary-green);
+      --rais-progress-active: #087830;
       --rais-bg-light: #F7F7F7;
       --rais-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
       --rais-button-maroon: #811F1D;
@@ -58,7 +58,7 @@
     }
 
     .sidebar {
-      background-color: var(--rais-primary-green);
+      background-color: #087830;
       width: 70px;
       flex-shrink: 0;
       color: white;
@@ -96,12 +96,9 @@
     .sidebar .nav {
       flex-grow: 1;
       overflow-y: auto;
-      /* Allow vertical scrolling for the nav links */
       overflow-x: hidden;
-      /* Hide horizontal scrollbar */
     }
 
-    /* Custom scrollbar for sidebar nav */
     .sidebar .nav::-webkit-scrollbar {
       width: 8px;
     }
@@ -132,7 +129,7 @@
 
     .sidebar .nav-link.active,
     .sidebar .nav-link:hover {
-      background-color: var(--rais-dark-green);
+      background-color: #14552b;
     }
 
     .sidebar .nav-link i {
@@ -552,7 +549,6 @@
       background-color: var(--rais-dark-green);
     }
 
-    /* Chat Styles */
     .chat-container {
       position: fixed;
       bottom: 100px;
@@ -678,10 +674,6 @@
       margin-top: 0.25rem;
     }
 
-    .dark-mode .chat-message-bubble .timestamp {
-      color: #bbb;
-    }
-
     .chat-message-bubble.user {
       background-color: var(--rais-primary-green);
       color: white;
@@ -694,11 +686,6 @@
       color: var(--rais-text-dark);
       align-self: flex-start;
       border-bottom-left-radius: 0.25rem;
-    }
-
-    .dark-mode .chat-message-bubble.admin {
-      background-color: #333;
-      color: #EAEAEA;
     }
 
     .chat-toggle-btn {
@@ -876,11 +863,6 @@
       border-radius: 50%;
     }
 
-    .floating-btn.tour-highlight,
-    .chat-toggle-btn.tour-highlight {
-      position: fixed !important;
-    }
-
     /* Dark Mode Styles */
     .dark-mode-logo {
       display: none;
@@ -970,77 +952,6 @@
       background-color: var(--rais-primary-green);
     }
 
-    .dark-mode .tour-help-btn {
-      color: #EAEAEA;
-      border-color: var(--rais-highlight-light-green);
-    }
-
-    .dark-mode .tour-help-btn:hover {
-      background-color: #2c2c2c;
-    }
-
-    .dark-mode .quick-actions-card .logo-only-img {
-      filter: brightness(0.9);
-    }
-
-    .dark-mode .tara-canada-label {
-      color: #EAEAEA;
-      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
-    }
-
-    .dark-mode ::-webkit-scrollbar-track {
-      background: #2c2c2c;
-    }
-
-    .dark-mode .welcome-tour-modal .modal-body p {
-      color: #EAEAEA;
-    }
-
-    .dark-mode .welcome-tour-modal .modal-footer .btn-secondary {
-      background-color: #333;
-      color: #EAEAEA;
-      border: 1px solid #444;
-    }
-
-    .dark-mode .welcome-tour-modal .modal-header .step-indicator {
-      background-color: #333;
-      color: #EAEAEA;
-    }
-
-    .dark-mode .welcome-tour-modal .modal-header .step-indicator.active {
-      background-color: var(--rais-primary-green);
-      color: white;
-    }
-
-    .dark-mode .chat-body {
-      background-color: #121212;
-    }
-
-    .dark-mode .message-bubble.admin {
-      background-color: #2a2a2a;
-      color: #EAEAEA;
-    }
-
-    .dark-mode .form-control {
-      background-color: #2a2a2a;
-      color: #EAEAEA;
-      border-color: #3c3c3c;
-    }
-
-    .dark-mode .form-control::placeholder {
-      color: #888;
-    }
-
-    .dark-mode .chat-footer .btn i,
-    .dark-mode .chat-footer-fullscreen .btn i {
-      color: #EAEAEA;
-    }
-
-    .dark-mode .btn-close {
-      filter: invert(1) grayscale(100%) brightness(200%);
-    }
-
-
     @media (max-width: 992px) {
       body {
         padding-top: 60px;
@@ -1092,21 +1003,8 @@
         overflow-y: hidden;
       }
 
-      .sidebar::-webkit-scrollbar {
-        height: 4px;
-      }
-
-      .sidebar::-webkit-scrollbar-thumb {
-        background: var(--rais-dark-green);
-        border-radius: 2px;
-      }
-
       .sidebar:hover {
         width: 100%;
-      }
-
-      .sidebar.tour-highlight {
-        border-radius: 15px 15px 0 0;
       }
 
       .sidebar .logo,
@@ -1133,10 +1031,6 @@
         height: 100%;
       }
 
-      .sidebar .nav-link:hover {
-        background-color: var(--rais-dark-green);
-      }
-
       .sidebar .nav-link i {
         font-size: 1.5rem;
         margin-bottom: 0;
@@ -1160,46 +1054,6 @@
       .chat-container {
         display: none !important;
       }
-
-      .progress-steps {
-        padding: 20px 15px;
-        align-items: flex-start;
-      }
-
-      .step-circle {
-        width: 60px;
-        height: 60px;
-        line-height: 60px;
-        font-size: 1.2rem;
-      }
-
-      .step-label {
-        font-size: 0.75rem;
-        white-space: normal;
-        max-width: 60px;
-      }
-
-      .welcome-tour-modal .modal-header,
-      .welcome-tour-modal .modal-body,
-      .welcome-tour-modal .modal-footer {
-        padding: 1rem;
-      }
-
-      .welcome-tour-modal .modal-footer {
-        flex-direction: column;
-        gap: 10px;
-      }
-
-      .welcome-tour-modal .modal-footer .btn {
-        width: 100%;
-      }
-
-      .welcome-tour-modal .modal-dialog {
-        top: 20px;
-        right: 20px;
-        left: 20px;
-        max-width: calc(100% - 40px);
-      }
     }
   </style>
 </head>
@@ -1207,38 +1061,37 @@
 <body class="">
   <div class="main-wrapper">
     <aside class="sidebar d-flex flex-column">
-      <div class="logo">RAIS</div>
+      <div class="logo">SAVANT</div>
       <nav class="nav flex-column">
-        <a class="nav-link active" href=""><i class="bi bi-house-door-fill"></i><span>Dashboard</span></a>
+        <a class="nav-link active" href="#"><i class="bi bi-house-door-fill"></i><span>Dashboard</span></a>
         <a class="nav-link" href="booking.html"><i class="bi bi-calendar-check"></i><span>Book
             Consultation</span></a>
         <a class="nav-link" href="statement.html"><i class="bi bi-receipt"></i><span>Statement of
             Account</span></a>
-        <a class="nav-link" href="documents.php"><i class="bi bi-file-earmark-text"></i><span>Documents</span></a>
-        <a class="nav-link" href="forms.php"><i class="bi bi-journal-text"></i><span>Forms</span></a>
-        <a class="nav-link" href="notifications.php"><i class="bi bi-bell"></i><span>Notifications</span></a>
-        <a class="nav-link" href="settings.php"><i class="bi bi-gear"></i><span>Settings</span></a>
-        <a class="nav-link" href="profile.php"><i class="bi bi-person-circle"></i><span>Profile</span></a>
+        <a class="nav-link" href="documents.html"><i class="bi bi-file-earmark-text"></i><span>Documents</span></a>
+        <a class="nav-link" href="forms.html"><i class="bi bi-journal-text"></i><span>Forms</span></a>
+        <a class="nav-link" href="notifications.html"><i class="bi bi-bell"></i><span>Notifications</span></a>
+        <a class="nav-link" href="settings.html"><i class="bi bi-gear"></i><span>Settings</span></a>
+        <a class="nav-link" href="profile.html"><i class="bi bi-person-circle"></i><span>Profile</span></a>
       </nav>
       <div class="mt-auto footer-text">
-        &copy; RAIS
+        &copy; 2026 RAIS
       </div>
     </aside>
     <div class="content-area">
       <div class="header">
         <div class="header-brand d-flex align-items-center">
-          <img src="logo.png" alt="RAIS Logo" class="header-logo-img light-mode-logo">
-          <img src="logo.png" alt="RAIS Logo Dark" class="header-logo-img dark-mode-logo"
-            onerror="this.style.display='none'">
-          <span class="header-title">Savant-International Student Mobility</span>
+          <img src="" alt="Savant Logo" class="header-logo-img light-mode-logo">
+          <img src="" alt="Savant Logo Dark" class="header-logo-img dark-mode-logo">
+          <span class="header-title">Savant-Internatioal Student Mobility</span>
         </div>
 
         <div class="header-date-mobile d-lg-none">
-          M j, Y
+          Current Date
         </div>
 
         <div class="user-status d-flex align-items-center gap-2">
-          <div class="me-3 d-none d-lg-block" style="font-weight: 500;">F j, Y</div>
+          <div class="me-3 d-none d-lg-block" style="font-weight: 500;">Current Date</div>
           <button class="tour-help-btn" id="tourToggleButton"><i class="bi bi-question-circle"></i></button>
           <a href="#" class="btn btn-link power-btn" data-bs-toggle="modal" data-bs-target="#logoutModal"><i
               class="bi bi-power"></i></a>
@@ -1252,11 +1105,11 @@
               <div>
                 <div class="profile-info d-flex align-items-center gap-3">
                   <div class="profile-display-area" id="dashboardProfileImageContainer">
+                    <i class="bi bi-person-circle profile-icon"></i>
                   </div>
                   <span class="profile-name" id="dashboardProfileName">FIRST NAME, LAST NAME</span>
                 </div>
-                <div class="social-links mt-3" id="dashboardSocialLinks">
-                </div>
+                <div class="social-links mt-3" id="dashboardSocialLinks"></div>
                 <div class="contact-info mt-3">
                   <div id="dashboardContactNumber">(+63) 987 654 3210</div>
                   <div id="dashboardBirthday">Birthday: MM/DD/YYYY</div>
@@ -1266,13 +1119,11 @@
           </div>
           <div class="col-12 col-lg-5">
             <div class="quick-actions-card h-100 d-flex flex-column justify-content-center">
-              <img src="../img/logoulit.png" alt="RAIS Logo" class="logo-only-img img-fluid light-mode-logo"
-                id="interactive-logo"
-                onerror="this.onerror=null;this.src='https://placehold.co/200x200/FFFFFF/004d40?text=RAIS';">
-              <img src="../img/logowhite.png" alt="RAIS Logo Dark" class="logo-only-img img-fluid dark-mode-logo"
-                id="interactive-logo-dark"
-                onerror="this.onerror=null;this.src='https://placehold.co/200x200/1e1e1e/EAEAEA?text=RAIS';">
-              <h3 class="tara-canada-label">TARA CANADA!</h3>
+              <img src="" alt="SAVANT Logo" class="logo-only-img img-fluid light-mode-logo"
+                id="interactive-logo">
+              <img src="" alt="SAVANT Logo Dark" class="logo-only-img img-fluid dark-mode-logo"
+                id="interactive-logo-dark">
+              <h1 class="tara-canada-label">SAVANT!</h1>
             </div>
           </div>
         </div>
@@ -1283,15 +1134,15 @@
             <div class="step-label">Congrats! you've made your account!</div>
           </div>
           <div class="step-item">
-            <div class="step-circle ">2</div>
+            <div class="step-circle">2</div>
             <div class="step-label">Profile picture looks great!</div>
           </div>
           <div class="step-item">
-            <div class="step-circle ">3</div>
+            <div class="step-circle">3</div>
             <div class="step-label">Birthday added!</div>
           </div>
           <div class="step-item">
-            <div class="step-circle ">4</div>
+            <div class="step-circle">4</div>
             <div class="step-label">Social links connected!</div>
           </div>
         </div>
@@ -1299,46 +1150,10 @@
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 contents-grid">
           <div class="col">
             <a href="../blogs.php" class="card h-100 text-decoration-none text-dark">
-              <img src="../blog/img/minifair2.png" class="card-img-top" alt="Blogs and Events">
+              <img src="../blog/img/minifair2.png" class="card-img-top" alt="Blogs">
               <div class="card-body">
                 <h5 class="card-title">Blogs and Events</h5>
                 <p class="card-text text-muted">View Blogs & Events.</p>
-              </div>
-            </a>
-          </div>
-          <div class="col">
-            <a href="../about.php" class="card h-100 text-decoration-none text-dark">
-              <img src="../img/about.png" class="card-img-top" alt="Service Offering">
-              <div class="card-body">
-                <h5 class="card-title">About Us</h5>
-                <p class="card-text text-muted">Learn more about our company.</p>
-              </div>
-            </a>
-          </div>
-          <div class="col">
-            <a href="#" class="card h-100 text-decoration-none text-dark">
-              <img src="../img/index2.png" class="card-img-top" alt="Home Page">
-              <div class="card-body">
-                <h5 class="card-title">Home Page</h5>
-                <p class="card-text text-muted">View Home Page</p>
-              </div>
-            </a>
-          </div>
-          <div class="col">
-            <a href="../ielts.php" class="card h-100 text-decoration-none text-dark">
-              <img src="../img/thumbielts.png" class="card-img-top" alt="IELTS">
-              <div class="card-body">
-                <h5 class="card-title">International English Language Testing System</h5>
-                <p class="card-text text-muted">Book your IELTS Exam</p>
-              </div>
-            </a>
-          </div>
-          <div class="col">
-            <a href="../oet.php" class="card h-100 text-decoration-none text-dark">
-              <img src="../img/OET.jpg" class="card-img-top" alt="IELTS">
-              <div class="card-body">
-                <h5 class="card-title">Occupational English System</h5>
-                <p class="card-text text-muted">Book your OET.</p>
               </div>
             </a>
           </div>
@@ -1352,470 +1167,30 @@
       <h5 class="chat-modal-title mb-0"><i class="bi bi-chat-dots-fill me-2"></i>Live Chat</h5>
       <i class="bi bi-x-lg text-white"></i>
     </div>
-    <div class="chat-body">
+    <div class="chat-body-fullscreen">
+      <div class="text-center text-muted">Savant Support, how may I help you?</div>
     </div>
+    <div class="chat-body"></div>
     <div class="chat-footer">
       <div class="input-group">
-        <input type="text" class="form-control message-input" placeholder="Type a message..."
-          aria-label="Message input">
-        <button class="btn btn-outline-secondary send-button" type="button">
-          <i class="bi bi-send-fill"></i>
-        </button>
+        <input type="text" class="form-control message-input" placeholder="Type a message...">
+        <button class="btn btn-outline-secondary send-button" type="button"><i class="bi bi-send-fill"></i></button>
       </div>
     </div>
   </div>
 
-  <div id="full-screen-chat">
-    <div class="chat-header-fullscreen">
-      <button class="back-btn" id="backToDashboardBtn"><i class="bi bi-arrow-left"></i></button>
-      <span class="chat-title-fullscreen"><i class="bi bi-chat-dots-fill me-2"></i>Live Chat</span>
-    </div>
-    <div class="chat-body-fullscreen">
-    </div>
-    <div class="chat-footer-fullscreen">
-      <div class="input-group">
-        <input type="text" class="form-control message-input" placeholder="Type a message..."
-          aria-label="Message input">
-        <button class="btn btn-outline-secondary send-button" type="button">
-          <i class="bi bi-send-fill"></i>
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <a href="book-flight.php" class="floating-btn text-decoration-none">
-    <i class="bi bi-plus-lg"></i>
-  </a>
-  <button class="chat-toggle-btn" onclick="toggleChat()">
-    <i class="bi bi-chat-dots"></i>
-  </button>
-
-  <div class="modal fade welcome-tour-modal" id="welcomeTourModal" tabindex="-1" aria-labelledby="welcomeTourModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <div class="progress-container">
-            <div class="progress-line">
-              <div class="progress-fill" id="tourProgressFill"></div>
-            </div>
-            <div class="step-indicator active" id="stepIndicator1">1</div>
-            <div class="step-indicator" id="stepIndicator2">2</div>
-            <div class="step-indicator" id="stepIndicator3">3</div>
-            <div class="step-indicator" id="stepIndicator4">4</div>
-          </div>
-          <div class="modal-title-container">
-            <i class="bi bi-compass fs-4 me-2" style="color: var(--rais-primary-green);"></i>
-            <h5 class="modal-title" id="welcomeTourModalLabel">Welcome </h5>
-          </div>
-        </div>
-        <div class="modal-body">
-          <p id="tourContent">Welcome to your RAIS dashboard! This tour will guide you through the main features and how
-            to navigate them.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" id="tourPrevBtn" style="display: none;">Previous</button>
-          <button type="button" class="btn btn-primary" id="tourNextBtn">Next</button>
-          <button type="button" class="btn btn-secondary" id="tourSkipBtn" data-bs-dismiss="modal">Skip Tour</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="tour-overlay"></div>
-
-  <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="logoutModalLabel">Confirm Logout</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          Are you sure you want to log out?
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-          <a href="../logout.php" class="btn btn-danger">Logout</a>
-        </div>
-      </div>
-    </div>
-  </div>
+  <a href="book-flight.php" class="floating-btn text-decoration-none"><i class="bi bi-plus-lg"></i></a>
+  <button class="chat-toggle-btn" onclick="toggleChat()"><i class="bi bi-chat-dots"></i></button>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-
   <script>
-    // Placeholder data since PHP is removed
-    const initialProfileData = {
-      firstName: 'User',
-      lastName: 'Name',
-      email: 'example@email.com',
-      contact: '(+63) 987 654 3210',
-      birthday: '1990-01-01',
-      profileImage: null,
-      social: {
-        facebook: '#',
-        instagram: '#',
-        gmail: '#'
-      }
-    };
+    // JS logic remains but dynamic PHP injections were removed or set to defaults
+    const initialProfileData = { "firstName": "User", "lastName": "Not Found", "social": {} };
     const hasSeenTour = true;
-    const currentUserId = 0;
-
-    // --- CHAT LOGIC ---
-    const mainWrapper = document.querySelector('.main-wrapper');
-    const floatingBtn = document.querySelector('.floating-btn');
-    const chatToggleBtn = document.querySelector('.chat-toggle-btn');
-    const popupChatContainer = document.getElementById('chatContainer');
-    const fullScreenChat = document.getElementById('full-screen-chat');
-    const chatBodyPopup = document.querySelector('#chatContainer .chat-body');
-    const chatBodyFullscreen = document.querySelector('#full-screen-chat .chat-body-fullscreen');
-
-    let messagePollingInterval;
 
     function toggleChat() {
-      if (window.innerWidth <= 992) {
-        const isChatVisible = fullScreenChat.style.display === 'flex';
-        if (isChatVisible) {
-          fullScreenChat.style.display = 'none';
-          mainWrapper.style.display = 'flex';
-          floatingBtn.style.display = 'flex';
-          chatToggleBtn.style.display = 'flex';
-          clearInterval(messagePollingInterval);
-          messagePollingInterval = null;
-        } else {
-          fullScreenChat.style.display = 'flex';
-          mainWrapper.style.display = 'none';
-          floatingBtn.style.display = 'none';
-          chatToggleBtn.style.display = 'none';
-          fetchMessages();
-          messagePollingInterval = setInterval(fetchMessages, 5000); // Poll every 5 seconds
-        }
-      } else {
-        popupChatContainer.classList.toggle('show');
-        if (popupChatContainer.classList.contains('show')) {
-          fetchMessages();
-          messagePollingInterval = setInterval(fetchMessages, 5000);
-        } else {
-          clearInterval(messagePollingInterval);
-          messagePollingInterval = null;
-        }
-      }
-    }
-
-    async function fetchMessages() {
-      try {
-        const response = await fetch('chat_handler.php?action=getMessages');
-        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-        const data = await response.json();
-        if (data.status === 'success') {
-          renderMessages(data.messages);
-        } else {
-          console.error('Failed to fetch messages:', data.message);
-        }
-      } catch (error) {
-        console.error('Error fetching messages:', error);
-      }
-    }
-
-    function renderMessages(messages) {
-      const messageHtml = messages.map(msg => {
-        const isUser = msg.sender_id == currentUserId;
-        const senderName = isUser ? "You" : "RAIS Support";
-        const bubbleClass = isUser ? 'user' : 'admin';
-        const formattedTimestamp = new Date(msg.timestamp.replace(' ', 'T') + 'Z').toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-
-        return `
-                    <div class="chat-message-bubble ${bubbleClass}">
-                        <div class="sender-name">${senderName}</div>
-                        <div class="chat-message-content">${msg.message}</div>
-                        <span class="timestamp">${formattedTimestamp}</span>
-                    </div>
-                `;
-      }).join('');
-
-      const welcomeMessage = '<div class="text-center text-muted small mb-2">This is RAIS how may i help you today?</div>';
-
-      chatBodyPopup.innerHTML = welcomeMessage + messageHtml;
-      chatBodyFullscreen.innerHTML = welcomeMessage + messageHtml;
-
-      chatBodyPopup.scrollTop = chatBodyPopup.scrollHeight;
-      chatBodyFullscreen.scrollTop = chatBodyFullscreen.scrollHeight;
-    }
-
-    async function sendMessage() {
-      const popupInput = document.querySelector('#chatContainer .message-input');
-      const fullscreenInput = document.querySelector('#full-screen-chat .message-input');
-
-      let message = popupInput.value.trim();
-      if (!message) {
-        message = fullscreenInput.value.trim();
-      }
-
-      if (!message) return;
-
-      const formData = new FormData();
-      formData.append('action', 'sendMessage');
-      formData.append('message', message);
-
-      popupInput.value = '';
-      fullscreenInput.value = '';
-
-      try {
-        const response = await fetch('chat_handler.php', {
-          method: 'POST',
-          body: formData
-        });
-        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-        const data = await response.json();
-        if (data.status === 'success') {
-          fetchMessages();
-        } else {
-          console.error('Failed to send message:', data.message);
-          alert('Failed to send message: ' + data.message);
-        }
-      } catch (error) {
-        console.error('Error sending message:', error);
-        alert('An error occurred while sending your message.');
-      }
-    }
-
-    document.addEventListener('DOMContentLoaded', function () {
-      document.getElementById('backToDashboardBtn').addEventListener('click', toggleChat);
-
-      document.querySelectorAll('.send-button').forEach(button => {
-        button.addEventListener('click', sendMessage);
-      });
-
-      document.querySelectorAll('.message-input').forEach(input => {
-        input.addEventListener('keypress', (e) => {
-          if (e.key === 'Enter') {
-            e.preventDefault();
-            sendMessage();
-          }
-        });
-      });
-
-      loadProfileData();
-
-      // --- WELCOME TOUR LOGIC ---
-      const welcomeTourModalElement = document.getElementById('welcomeTourModal');
-      const welcomeTourModal = new bootstrap.Modal(welcomeTourModalElement);
-
-      if (!hasSeenTour) {
-        welcomeTourModal.show();
-        // Mark the tour as seen
-        fetch('dashboard.php', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-          },
-          body: 'action=mark_tour_seen'
-        }).catch(error => console.error('Error marking tour as seen:', error));
-      }
-
-      let currentStep = 0;
-      let highlightedElement = null;
-      const tourSteps = [
-        { title: "Welcome to RAIS!", content: "This tour helps you get familiar with your new dashboard. Let's explore!", targetSelector: null },
-        { title: "Your Profile & Quick Actions", content: "Your infos are displayed here, you can modify your profile in the profile tab.", targetSelector: ".user-info-card" },
-        { title: "Your Progress Journey", content: "Track your progress here.", targetSelector: ".progress-steps" },
-        { title: "Important Resources", content: "You may visit other pages here.", targetSelector: ".contents-grid" },
-        { title: "Sidebar Navigation", content: "Navigate to other tabs such as Book Consultation, Documents, etc...", targetSelector: ".sidebar" },
-        { title: "Need Help? Chat with us!", content: "This chatbox may be used for raising your questions and concerns.", targetSelector: ".chat-toggle-btn" },
-        { title: "Ready to Book Your Flight?", content: "You may plan your flight using our book flight button.", targetSelector: ".floating-btn" },
-        { title: "Tour Complete!", content: "You're all set! Tara Canada na!.", targetSelector: null }
-      ];
-
-      const tourTitle = document.getElementById('welcomeTourModalLabel');
-      const tourContent = document.getElementById('tourContent');
-      const tourPrevBtn = document.getElementById('tourPrevBtn');
-      const tourNextBtn = document.getElementById('tourNextBtn');
-      const tourProgressFill = document.getElementById('tourProgressFill');
-      const stepIndicators = [
-        document.getElementById('stepIndicator1'),
-        document.getElementById('stepIndicator2'),
-        document.getElementById('stepIndicator3'),
-        document.getElementById('stepIndicator4')
-      ];
-
-      function updateTourContent() {
-        if (highlightedElement) {
-          highlightedElement.classList.remove('tour-highlight', 'highlight-circle');
-        }
-        document.body.classList.remove('tour-active');
-
-        const step = tourSteps[currentStep];
-        tourTitle.textContent = step.title;
-        tourContent.textContent = step.content;
-        tourPrevBtn.style.display = currentStep === 0 ? 'none' : 'block';
-        tourNextBtn.textContent = currentStep === tourSteps.length - 1 ? 'Finish' : 'Next';
-
-        const progressPercentage = (currentStep / (tourSteps.length - 1)) * 100;
-        tourProgressFill.style.width = `${progressPercentage}%`;
-
-        stepIndicators.forEach((indicator, index) => {
-          const majorStepIndex = Math.floor(index * (tourSteps.length / stepIndicators.length));
-          indicator.classList.toggle('active', currentStep >= majorStepIndex);
-        });
-
-        if (step.targetSelector) {
-          highlightedElement = document.querySelector(step.targetSelector);
-          if (highlightedElement) {
-            highlightedElement.classList.add('tour-highlight');
-            if (step.targetSelector === '.floating-btn' || step.targetSelector === '.chat-toggle-btn') {
-              highlightedElement.classList.add('highlight-circle');
-            }
-            document.body.classList.add('tour-active');
-          }
-        } else {
-          highlightedElement = null;
-        }
-      }
-
-      tourNextBtn.addEventListener('click', () => {
-        if (currentStep < tourSteps.length - 1) {
-          currentStep++;
-          updateTourContent();
-        } else {
-          welcomeTourModal.hide();
-        }
-      });
-
-      tourPrevBtn.addEventListener('click', () => {
-        if (currentStep > 0) {
-          currentStep--;
-          updateTourContent();
-        }
-      });
-
-      function endTour() {
-        if (highlightedElement) {
-          highlightedElement.classList.remove('tour-highlight', 'highlight-circle');
-        }
-        document.body.classList.remove('tour-active');
-      }
-
-      document.getElementById('tourSkipBtn').addEventListener('click', endTour);
-      welcomeTourModalElement.addEventListener('hidden.bs.modal', endTour);
-
-
-      document.getElementById('tourToggleButton').addEventListener('click', () => {
-        currentStep = 0;
-        updateTourContent();
-        welcomeTourModal.show();
-      });
-
-      updateTourContent();
-    });
-
-    // --- INTERACTIVE LOGO JAVASCRIPT ---
-    const interactiveLogoLight = document.getElementById('interactive-logo');
-    const interactiveLogoDark = document.getElementById('interactive-logo-dark');
-    let isDragging = false;
-    let startX, startY;
-    let draggedLogo = null;
-
-    function handleDragStart(e) {
-      draggedLogo = e.target;
-      isDragging = true;
-      const touch = e.touches ? e.touches[0] : e;
-      startX = touch.clientX;
-      startY = touch.clientY;
-      draggedLogo.style.cursor = 'grabbing';
-      draggedLogo.style.transition = 'none';
-      if (e.touches) e.preventDefault();
-    }
-
-    function handleDragMove(e) {
-      if (!isDragging || !draggedLogo) return;
-      const touch = e.touches ? e.touches[0] : e;
-      const deltaX = touch.clientX - startX;
-      const deltaY = touch.clientY - startY;
-      const rotateY = Math.max(-180, Math.min(180, deltaX / 2));
-      const rotateX = Math.max(-180, Math.min(180, -deltaY / 2));
-
-      // Dynamic glow effect
-      const glowIntensity = Math.min(Math.sqrt(deltaX * deltaX + deltaY * deltaY) / 100, 1);
-      const glowColor = `rgba(152, 251, 152, ${0.3 + glowIntensity * 0.6})`;
-      const glowSpread = 10 + glowIntensity * 20;
-
-      draggedLogo.style.transform = `perspective(1000px) rotateY(${rotateY}deg) rotateX(${rotateX}deg) scale(1.1)`;
-      draggedLogo.style.filter = `brightness(1.15) drop-shadow(0 0 ${glowSpread}px ${glowColor})`;
-
-    }
-
-    function handleDragEnd() {
-      if (draggedLogo) {
-        draggedLogo.style.cursor = 'grab';
-        draggedLogo.style.transition = 'transform 0.5s ease-out, filter 0.5s ease-out';
-        draggedLogo.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1)';
-        draggedLogo.style.filter = 'brightness(1) drop-shadow(0 0 0 transparent)';
-
-      }
-      isDragging = false;
-      draggedLogo = null;
-    }
-
-    [interactiveLogoLight, interactiveLogoDark].forEach(logo => {
-      if (logo) {
-        logo.addEventListener('mousedown', handleDragStart);
-        logo.addEventListener('touchstart', handleDragStart, { passive: false });
-      }
-    });
-
-    document.addEventListener('mousemove', handleDragMove);
-    document.addEventListener('mouseup', handleDragEnd);
-    document.addEventListener('touchmove', handleDragMove, { passive: false });
-    document.addEventListener('touchend', handleDragEnd);
-
-    // --- PROFILE DATA LOGIC ---
-    function loadProfileData() {
-      const profileData = initialProfileData;
-
-      document.getElementById('dashboardProfileName').textContent = `${profileData.lastName}, ${profileData.firstName}`;
-      document.getElementById('dashboardContactNumber').textContent = profileData.contact;
-      document.getElementById('dashboardBirthday').textContent = `Birthday: ${profileData.birthday}`;
-
-      const socialLinksContainer = document.getElementById('dashboardSocialLinks');
-      let socialHTML = '';
-      if (profileData.social.facebook) {
-        socialHTML += `<a href="${profileData.social.facebook}" target="_blank" title="Facebook"><i class="bi bi-facebook fs-5"></i></a>`;
-      }
-      if (profileData.social.instagram) {
-        socialHTML += `<a href="${profileData.social.instagram}" target="_blank" title="Instagram"><i class="bi bi-instagram fs-5"></i></a>`;
-      }
-      if (profileData.email) {
-        socialHTML += `
-                    <span class="d-inline-flex align-items-center">
-                        <a href="#" title="Email" id="emailLink" class="me-2"><i class="bi bi-envelope-fill fs-5"></i></a>
-                        <span id="emailAddress" class="text-muted" style="display: none; font-size: 0.9rem;">${profileData.email}</span>
-                    </span>
-                `;
-      }
-      socialLinksContainer.innerHTML = socialHTML;
-
-      // Add the event listener for the new email icon toggle
-      const emailLink = document.getElementById('emailLink');
-      if (emailLink) {
-        emailLink.addEventListener('click', function (event) {
-          event.preventDefault(); // Prevent the default mailto: action
-          const emailAddressSpan = document.getElementById('emailAddress');
-          if (emailAddressSpan) {
-            const isVisible = emailAddressSpan.style.display !== 'none';
-            emailAddressSpan.style.display = isVisible ? 'none' : 'inline';
-          }
-        });
-      }
-
-
-      const dashboardProfileImageContainer = document.getElementById('dashboardProfileImageContainer');
-      if (profileData.profileImage) {
-        dashboardProfileImageContainer.innerHTML = `<img src="${profileData.profileImage}" alt="Profile Image" class="profile-image-dashboard">`;
-      } else {
-        dashboardProfileImageContainer.innerHTML = `<i class="bi bi-person-circle profile-icon"></i>`;
-      }
+      const popupChatContainer = document.getElementById('chatContainer');
+      popupChatContainer.classList.toggle('show');
     }
   </script>
 </body>
