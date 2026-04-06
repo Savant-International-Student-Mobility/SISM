@@ -11,6 +11,12 @@
     rel="stylesheet">
 
   <style>
+    :root {
+      --savant-primary-green: #087830;
+      --savant-accent-green: #12aa42;
+      --savant-hover-green: #146c3a;
+    }
+
     * {
       font-family: 'Poppins', sans-serif !important;
     }
@@ -56,7 +62,7 @@
 
     .btn-back-circle:hover {
       background: rgba(255, 255, 255, 0.2);
-      color: #087830;
+      color: var(--savant-primary-green);
       transform: scale(1.1);
     }
 
@@ -87,7 +93,7 @@
     }
 
     .btn-action {
-      background-color: #12aa42;
+      background-color: var(--savant-accent-green);
       border: none;
       padding: 12px;
       font-weight: 500;
@@ -96,7 +102,7 @@
     }
 
     .btn-action:hover {
-      background-color: #146c3a;
+      background-color: var(--savant-hover-green);
     }
 
     .footer-links a {
@@ -136,7 +142,7 @@
     <div class="glass-card">
       <div class="row align-items-center">
         <div class="col-lg-6 d-flex align-items-center mb-5 mb-lg-0 justify-content-center">
-          <img src="img/logo.png" alt="Logo" style="width: 400px; height: auto;">
+          <img src="img/logo.png" alt="SAVANT Logo" style="width: 400px; height: auto;">
         </div>
 
         <div class="col-lg-6">
