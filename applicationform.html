@@ -198,7 +198,6 @@
     }
   </style>
 </head>
-
 <body>
   <div class="body-wrapper">
     <a href="index.html" class="btn-back" aria-label="Go Back">
@@ -207,15 +206,11 @@
     <div class="text-center mb-3">
       <img src="img/flogo.jpeg" alt="Company Logo" class="d-inline-block" style="width: 120px; height: 120px;">
     </div>
-
     <div class="container bg-white rounded-3 shadow-lg overflow-hidden my-5 p-0">
-
       <div class="header-bg text-white py-4 d-flex justify-content-center">
         <span>Canada? Interest Check</span>
       </div>
-
       <form class="p-4 p-md-5" id="interestForm" novalidate>
-
         <div class="intro-text-container">
           <p class="intro-text">We are licensed Canadian immigration firm with a main office based in Vancouver Island
             British Columbia, Canada. We provide consultancy visas: temporary resident visa, family sponsorship,
@@ -224,31 +219,25 @@
             to Canada for better opportunities and brighter futures. Similarly, supporting our clients and encouraging
             them in times of doubt have enabled us to boost the quality of our services even further.</p>
         </div>
-
         <p class="required-note mb-4">* Indicates required question</p>
-
         <div class="form-section mb-4">
           <label for="email" class="form-label">Email <span class="required-indicator">*</span></label>
           <input type="email" id="email" name="email" placeholder="youremail@gmail.com" class="form-control" required>
         </div>
-
         <div class="form-section mb-4">
           <label for="fullName" class="form-label">Name (LAST NAME, First Name, Middle Initial) <span
               class="required-indicator">*</span></label>
           <input type="text" id="fullName" name="fullName" placeholder="Your answer" class="form-control" required>
         </div>
-
         <div class="form-section mb-4">
           <label for="phone" class="form-label">Phone Number (09XXXXXXXX) <span
               class="required-indicator">*</span></label>
           <input type="tel" id="phone" name="phone" placeholder="Your answer" class="form-control" required>
         </div>
-
         <div class="form-section mb-4">
           <label for="address" class="form-label">Address <span class="required-indicator">*</span></label>
           <input type="text" id="address" name="address" placeholder="Your answer" class="form-control" required>
         </div>
-
         <div class="form-section mb-4">
           <label class="form-label d-block">Interest Pathway <span class="required-indicator">*</span></label>
           <div class="form-check">
@@ -293,7 +282,6 @@
               Creation</label>
           </div>
         </div>
-
         <div class="form-section mb-4">
           <label class="form-label d-block">Where did you find us? <span class="required-indicator">*</span></label>
           <div class="form-check">
@@ -313,23 +301,19 @@
             <label class="form-check-label" for="findUsLinkedin">Linkedin</label>
           </div>
         </div>
-
         <div class="form-section mb-4">
           <label for="facebookLink" class="form-label">Facebook Account Link <span
               class="required-indicator">*</span></label>
           <input type="url" id="facebookLink" name="facebookLink" placeholder="Your answer" class="form-control"
             required>
         </div>
-
         <div class="d-flex justify-content-center align-items-center gap-3 mt-5">
           <button type="button" class="btn btn-outline-secondary" id="clearBtn">Clear</button>
           <button type="button" class="btn btn-custom" id="submitBtn">Submit</button>
         </div>
-
       </form>
     </div>
   </div>
-
   <div class="modal fade" id="validationModal" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -372,34 +356,25 @@
       </div>
     </div>
   </div>
-
-
   <div id="footer-placeholder">
   </div>
-
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      // Modals
       const validationModal = new bootstrap.Modal(document.getElementById('validationModal'));
       const confirmationModal = new bootstrap.Modal(document.getElementById('confirmationModal'));
       const resultModal = new bootstrap.Modal(document.getElementById('resultModal'));
       const resultModalLabel = document.getElementById('resultModalLabel');
       const resultModalBody = document.getElementById('resultModalBody');
-
-      // Form and Buttons
       const form = document.getElementById('interestForm');
       const submitBtn = document.getElementById('submitBtn');
       const clearBtn = document.getElementById('clearBtn');
       const confirmSubmitBtn = document.getElementById('confirmSubmitBtn');
-
-      // Clear button functionality
       clearBtn.addEventListener('click', () => {
         form.reset();
       });
 
-      // Submit button validation
       submitBtn.addEventListener('click', () => {
         const requiredInputs = form.querySelectorAll('input[required]');
         let unfilledFields = [];
@@ -429,16 +404,11 @@
         }
       });
 
-      // Confirmation modal submit action
       confirmSubmitBtn.addEventListener('click', async () => {
         confirmationModal.hide();
-
-        // Show loading state
         resultModalLabel.textContent = 'Submitting...';
         resultModalBody.innerHTML = '<div class="d-flex justify-content-center"><div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div></div>';
         resultModal.show();
-
-        // Gather form data
         const formData = new FormData(form);
         const data = {
           email: formData.get('email'),

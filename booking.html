@@ -29,7 +29,6 @@
       background-color: var(--savant-light-gray);
       color: var(--savant-text-dark);
       overflow: hidden;
-      /* Prevent body scroll */
     }
 
     ::-webkit-scrollbar {
@@ -55,7 +54,6 @@
       height: 100vh;
     }
 
-    /* Sidebar Styles */
     .sidebar {
       background-color: #087830;
       width: 70px;
@@ -148,7 +146,6 @@
       margin-left: 70px;
     }
 
-    /* Header Styles */
     .header {
       background-color: var(--savant-bg-light);
       height: 60px;
@@ -210,7 +207,6 @@
       color: #a71d2a;
     }
 
-    /* Main Content Styles */
     .main-content {
       flex-grow: 1;
       padding: 30px;
@@ -372,7 +368,6 @@
       animation: fadeIn 0.5s ease-in-out;
     }
 
-    /* Floating Button */
     .floating-btn {
       position: fixed;
       bottom: 30px;
@@ -396,7 +391,6 @@
       background-color: var(--savant-dark-green);
     }
 
-    /* Collapsible Chatbox */
     .chat-container {
       position: fixed;
       bottom: 100px;
@@ -574,7 +568,6 @@
       }
     }
 
-    /* Dark Mode Styles */
     .dark-mode-logo {
       display: none;
     }
@@ -674,7 +667,6 @@
       filter: invert(1) grayscale(100%) brightness(200%);
     }
 
-    /* Responsive Design */
     @media (max-width: 992px) {
       body {
         padding-top: 60px;
@@ -817,7 +809,6 @@
         &copy; 2026 SAVANT
       </div>
     </aside>
-
     <div class="content-area">
       <div class="header">
         <div class="header-brand d-flex align-items-center">
@@ -830,7 +821,6 @@
           <span class="badge">Guest</span>
         </div>
       </div>
-
       <main class="main-content">
         <div id="booking-view">
           <div class="booking-wrapper">
@@ -874,7 +864,6 @@
                   <i class="bi bi-arrow-right-circle-fill ms-2"></i>
                 </button>
               </div>
-
               <div id="details-entry-view" style="display: none;">
                 <div>
                   <button id="back-to-calendar" class="btn btn-sm btn-submit mb-3">&lt; Back</button>
@@ -908,7 +897,6 @@
             </div>
           </div>
         </div>
-
         <div id="confirmation-view" style="display:none;" class="text-center mt-5">
           <i class="bi bi-check-circle-fill text-success" style="font-size: 4rem;"></i>
           <h2 class="mt-3">Consultation Booked!</h2>
@@ -927,15 +915,12 @@
           <button id="book-another" class="btn btn-primary mt-4"
             style="background-color: var(--savant-button-maroon); border: none;">Book Another Consultation</button>
         </div>
-
       </main>
     </div>
   </div>
-
   <a href="bookflight.html" class="floating-btn text-decoration-none">
     <i class="bi bi-plus-lg"></i>
   </a>
-
   <div class="chat-container" id="chatContainer">
     <div class="chat-header d-flex justify-content-between align-items-center" onclick="toggleChat()">
       <h5 class="chat-modal-title mb-0"><i class="bi bi-chat-dots-fill me-2"></i>Live Chat</h5>
@@ -954,7 +939,6 @@
       </div>
     </div>
   </div>
-
   <div id="full-screen-chat">
     <div class="chat-header-fullscreen">
       <button class="back-btn" id="backToDashboardBtn"><i class="bi bi-arrow-left"></i></button>
@@ -973,11 +957,9 @@
       </div>
     </div>
   </div>
-
   <button class="chat-toggle-btn" onclick="toggleChat()">
     <i class="bi bi-chat-dots"></i>
   </button>
-
   <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -995,7 +977,6 @@
       </div>
     </div>
   </div>
-
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
   <script>

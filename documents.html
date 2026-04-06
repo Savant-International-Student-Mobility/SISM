@@ -29,7 +29,6 @@
       background-color: var(--savant-light-gray);
       color: var(--savant-text-dark);
       overflow: hidden;
-      /* Prevent body scroll */
     }
 
     ::-webkit-scrollbar {
@@ -55,7 +54,6 @@
       height: 100vh;
     }
 
-    /* Sidebar Styles */
     .sidebar {
       background-color: #087830;
       width: 70px;
@@ -154,7 +152,6 @@
       margin-left: 70px;
     }
 
-    /* Header Styles */
     .header {
       background-color: var(--savant-bg-light);
       height: 60px;
@@ -222,7 +219,6 @@
       color: #a71d2a;
     }
 
-    /* Main Content Styles */
     .main-content {
       flex-grow: 1;
       padding: 30px;
@@ -337,7 +333,6 @@
       transition: opacity 0.2s ease-in-out;
     }
 
-    /* Preview Overlay Styles */
     .preview-overlay {
       position: absolute;
       top: 0;
@@ -415,7 +410,6 @@
       color: var(--savant-primary-green);
     }
 
-    /* Floating Button */
     .floating-btn {
       position: fixed;
       bottom: 30px;
@@ -440,7 +434,6 @@
       transform: scale(1.1) rotate(90deg);
     }
 
-    /* Collapsible Chatbox */
     .chat-container {
       position: fixed;
       bottom: 100px;
@@ -528,7 +521,6 @@
       flex-direction: column;
     }
 
-    /* Dark Mode Styles */
     body.dark-mode {
       background-color: #121212;
       color: #EAEAEA;
@@ -547,7 +539,6 @@
       border-color: #2c2c2c;
     }
 
-    /* Responsive Design */
     @media (max-width: 992px) {
       body {
         padding-top: 60px;
@@ -601,7 +592,6 @@
     }
   </style>
 </head>
-
 <body class="">
   <div class="main-wrapper">
     <aside class="sidebar d-flex flex-column">
@@ -623,7 +613,6 @@
         &copy; 2026 SAVANT
       </div>
     </aside>
-
     <div class="content-area">
       <div class="header">
         <div class="header-brand d-flex align-items-center">
@@ -636,10 +625,8 @@
           <span class="badge">User</span>
         </div>
       </div>
-
       <main class="main-content">
         <h1>PLEASE SUBMIT YOUR DOCUMENTS</h1>
-
         <div class="document-section">
           <div class="document-header">
             <div class="header-icon-container" onclick="document.getElementById('fileUpload').click()">
@@ -647,7 +634,6 @@
               <div class="icon-label">Upload File</div>
             </div>
             <input type="file" id="fileUpload" style="display: none;" multiple>
-
             <div class="header-icon-container" id="deleteBtnContainer">
               <button class="btn-icon"><i class="bi bi-trash"></i></button>
               <div class="icon-label">Delete</div>
@@ -689,7 +675,6 @@
       </main>
     </div>
   </div>
-
   <div class="modal fade" id="previewModal" tabindex="-1">
     <div class="modal-dialog modal-lg modal-dialog-centered">
       <div class="modal-content">
@@ -706,16 +691,13 @@
       </div>
     </div>
   </div>
-
   <a href="bookflight.html" class="floating-btn text-decoration-none">
     <i class="bi bi-plus-lg"></i>
   </a>
-
   <div class="chat-container" id="chatContainer">
     <div class="chat-header">Live Chat</div>
     <div class="chat-body"></div>
   </div>
-
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
   <script>
@@ -726,7 +708,6 @@
 
       const fileUpload = document.getElementById('fileUpload');
       fileUpload.addEventListener('change', function (e) {
-        // simulation logic
       });
     });
   </script>
