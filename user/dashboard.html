@@ -111,10 +111,6 @@
       border-radius: 4px;
     }
 
-    .sidebar .nav::-webkit-scrollbar-thumb:hover {
-      background: rgba(255, 255, 255, 0.5);
-    }
-
     .sidebar .nav-link {
       color: white;
       font-weight: 500;
@@ -124,6 +120,7 @@
       gap: 15px;
       white-space: nowrap;
       transition: background-color 0.3s ease;
+      text-decoration: none;
     }
 
     .sidebar .nav-link.active,
@@ -216,16 +213,6 @@
       z-index: 1020;
     }
 
-    .header-brand {
-      gap: 10px;
-    }
-
-    .header-logo-img {
-      height: 100px;
-      width: auto;
-      object-fit: contain;
-    }
-
     .header-title {
       font-size: 1rem;
       font-weight: 600;
@@ -238,12 +225,6 @@
       color: var(--savant-text-dark);
     }
 
-    .user-status {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
     .user-status .badge {
       background-color: var(--savant-button-maroon);
       font-size: 0.8rem;
@@ -253,17 +234,13 @@
       display: flex;
       align-items: center;
       justify-content: center;
-    }
-
-    .user-status .btn {
-      color: var(--savant-text-light);
-      font-size: 1.5rem;
-      padding: 0;
+      color: white;
     }
 
     .power-btn i {
       color: #dc3545;
       transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
+      font-size: 1.5rem;
     }
 
     .power-btn:hover i {
@@ -287,21 +264,7 @@
       transition: background-color 0.2s, color 0.2s;
     }
 
-    .tour-help-btn i {
-      transition: transform 0.2s ease-in-out;
-    }
-
-    .tour-help-btn:hover {
-      background-color: var(--savant-light-gray);
-      color: var(--savant-primary-green);
-    }
-
-    .tour-help-btn:hover i {
-      transform: scale(1.1);
-    }
-
     .main-content {
-      flex-grow: 1;
       padding: 30px;
       animation: fadeIn 0.5s ease-in-out;
     }
@@ -323,124 +286,35 @@
       padding: 30px;
       border-radius: 12px;
       box-shadow: var(--savant-shadow);
-      position: relative;
-    }
-
-    .user-info-card .card-content {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      height: 100%;
-    }
-
-    .user-info-card .profile-info {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      margin-bottom: 20px;
     }
 
     .profile-display-area {
-      position: relative;
       width: 96px;
       height: 96px;
       display: flex;
       justify-content: center;
       align-items: center;
-    }
-
-    .profile-display-area .profile-icon {
       font-size: 6rem;
       color: var(--savant-primary-green);
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
     }
 
-    .profile-display-area .profile-image-dashboard {
-      width: 96px;
-      height: 96px;
-      border-radius: 50%;
-      object-fit: cover;
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-
-    .user-info-card .profile-name {
+    .profile-name {
       font-size: 1.5rem;
       font-weight: 600;
-      margin: 0;
-    }
-
-    .user-info-card .contact-info {
-      font-size: 0.9rem;
-      color: var(--savant-text-light);
-    }
-
-    .user-info-card .social-links a {
-      color: var(--savant-text-dark);
-      margin-right: 15px;
-    }
-
-    .user-info-card .social-links a i {
-      transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
-    }
-
-    .user-info-card .social-links a:hover i {
-      transform: scale(1.2);
-      color: var(--savant-primary-green);
     }
 
     .quick-actions-card {
-      perspective: 1000px;
       display: flex;
       align-items: center;
       justify-content: center;
-      transform-style: preserve-3d;
     }
 
     .logo-only-img {
       max-width: 200px;
       margin: auto;
-      transition: transform 0.5s ease-out;
-      cursor: grab;
-    }
-
-    .tara-canada-label {
-      font-weight: 700;
-      font-size: 1.8rem;
-      margin-top: 20px;
-      color: var(--savant-dark-green);
-      text-align: center;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-      animation: pulse 2.5s infinite;
-    }
-
-    @keyframes pulse {
-      0% {
-        transform: scale(1);
-        opacity: 0.9;
-      }
-
-      50% {
-        transform: scale(1.05);
-        opacity: 1;
-      }
-
-      100% {
-        transform: scale(1);
-        opacity: 0.9;
-      }
     }
 
     .progress-steps {
-      position: relative;
       background-color: var(--savant-card-bg);
       border-radius: 12px;
       box-shadow: var(--savant-shadow);
@@ -451,8 +325,6 @@
     }
 
     .step-item {
-      position: relative;
-      z-index: 2;
       text-align: center;
       display: flex;
       flex-direction: column;
@@ -466,10 +338,7 @@
       border-radius: 50%;
       background-color: var(--savant-progress-bg);
       font-weight: 600;
-      font-size: 1.2rem;
-      color: var(--savant-text-dark);
       margin-bottom: 10px;
-      transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
     }
 
     .step-circle.active {
@@ -480,11 +349,6 @@
     .step-label {
       font-size: 0.8rem;
       color: var(--savant-text-light);
-      white-space: nowrap;
-    }
-
-    .contents-grid {
-      position: relative;
     }
 
     .contents-grid .card {
@@ -492,11 +356,11 @@
       box-shadow: var(--savant-shadow);
       border-radius: 12px;
       overflow: hidden;
+      transition: transform 0.2s;
     }
 
     .contents-grid .card:hover {
       transform: translateY(-5px);
-      transition: transform 0.2s ease-in-out;
     }
 
     .contents-grid .card img {
@@ -504,48 +368,33 @@
       object-fit: cover;
     }
 
-    .add-card {
-      min-height: 250px;
-      border-radius: 12px;
-      box-shadow: var(--savant-shadow);
-      background-color: var(--savant-card-bg);
+    .floating-btn,
+    .chat-toggle-btn {
+      position: fixed;
+      bottom: 30px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
       display: flex;
-      justify-content: center;
       align-items: center;
-      cursor: pointer;
-      transition: transform 0.2s ease-in-out;
-    }
-
-    .add-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .add-card .icon {
-      font-size: 4rem;
-      color: #C2C2C2;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      z-index: 1030;
+      color: white;
+      border: none;
     }
 
     .floating-btn {
-      position: fixed;
-      bottom: 30px;
       right: 30px;
-      background-color: var(--savant-button-maroon);
-      color: white;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      background-color: #085723;
       text-decoration: none;
-      transition: background-color 0.2s;
-      z-index: 1030;
+      font-size: 2rem;
     }
 
-    .floating-btn:hover {
-      background-color: var(--savant-dark-green);
+    .chat-toggle-btn {
+      right: 100px;
+      background-color: #085723;
+      font-size: 1.5rem;
     }
 
     .chat-container {
@@ -553,23 +402,16 @@
       bottom: 100px;
       right: 30px;
       width: 350px;
-      max-height: 500px;
       background-color: white;
       border-radius: 12px;
       box-shadow: var(--savant-shadow);
-      display: flex;
+      display: none;
       flex-direction: column;
       z-index: 99;
-      transform: translateY(100%);
-      opacity: 0;
-      visibility: hidden;
-      transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
     }
 
     .chat-container.show {
-      transform: translateY(0);
-      opacity: 1;
-      visibility: visible;
+      display: flex;
     }
 
     .chat-header {
@@ -578,412 +420,16 @@
       padding: 1rem;
       border-top-left-radius: 12px;
       border-top-right-radius: 12px;
-      cursor: pointer;
-    }
-
-    .chat-body {
-      padding: 1rem;
-      flex-grow: 1;
-      overflow-y: auto;
-      background-color: var(--savant-bg-light);
-      display: flex;
-      flex-direction: column;
-      height: 350px;
-    }
-
-    .chat-footer {
-      padding: 1rem;
-      border-top: 1px solid var(--savant-light-gray);
-    }
-
-    .chat-footer .btn i,
-    .chat-footer-fullscreen .btn i {
-      color: var(--savant-text-dark);
-    }
-
-    #full-screen-chat {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100vh;
-      background-color: var(--savant-bg-light);
-      z-index: 2000;
-      display: none;
-      flex-direction: column;
-    }
-
-    .chat-header-fullscreen {
-      display: flex;
-      align-items: center;
-      padding: 1rem;
-      background-color: var(--savant-primary-green);
-      color: white;
-      flex-shrink: 0;
-    }
-
-    .back-btn {
-      background: none;
-      border: none;
-      color: white;
-      font-size: 1.5rem;
-      cursor: pointer;
-      margin-right: 1rem;
-    }
-
-    .chat-title-fullscreen {
-      font-weight: 600;
-      font-size: 1.2rem;
-    }
-
-    .chat-body-fullscreen {
-      flex-grow: 1;
-      overflow-y: auto;
-      padding: 1rem;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .chat-footer-fullscreen {
-      padding: 1rem;
-      border-top: 1px solid var(--savant-light-gray);
-      background-color: white;
-      flex-shrink: 0;
-    }
-
-    .chat-message-bubble {
-      padding: 0.5rem 1rem;
-      border-radius: 1rem;
-      margin-bottom: 0.5rem;
-      max-width: 80%;
-      word-wrap: break-word;
-    }
-
-    .chat-message-bubble .sender-name {
-      font-weight: 600;
-      font-size: 0.8rem;
-      margin-bottom: 0.25rem;
-    }
-
-    .chat-message-bubble .timestamp {
-      font-size: 0.7rem;
-      color: #888;
-      display: block;
-      text-align: right;
-      margin-top: 0.25rem;
-    }
-
-    .chat-message-bubble.user {
-      background-color: var(--savant-primary-green);
-      color: white;
-      align-self: flex-end;
-      border-bottom-right-radius: 0.25rem;
-    }
-
-    .chat-message-bubble.admin {
-      background-color: var(--savant-light-gray);
-      color: var(--savant-text-dark);
-      align-self: flex-start;
-      border-bottom-left-radius: 0.25rem;
-    }
-
-    .chat-toggle-btn {
-      position: fixed;
-      bottom: 30px;
-      right: 100px;
-      background-color: var(--savant-button-maroon);
-      color: white;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      cursor: pointer;
-      transition: background-color 0.2s;
-      z-index: 1030;
-    }
-
-    .tour-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.6);
-      z-index: 1050;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
-    }
-
-    body.tour-active .tour-overlay {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .welcome-tour-modal .modal-content {
-      border-radius: 15px;
-      overflow: hidden;
-      border: none;
-      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
-    }
-
-    .welcome-tour-modal .modal-dialog {
-      position: fixed;
-      margin: 0;
-      max-width: 300px;
-      z-index: 1055;
-      top: 60px;
-      right: 80px;
-      bottom: auto;
-      left: auto;
-    }
-
-    .welcome-tour-modal .modal-header {
-      background-color: var(--savant-card-bg);
-      border-bottom: none;
-      padding: 1rem 1.5rem 0.5rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .welcome-tour-modal .modal-title-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-    }
-
-    .welcome-tour-modal .modal-header .progress-container {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1rem;
-      position: relative;
-    }
-
-    .welcome-tour-modal .modal-header .progress-line {
-      position: absolute;
-      width: calc(100% - 60px);
-      height: 4px;
-      background-color: var(--savant-light-gray);
-      top: 50%;
-      left: 30px;
-      transform: translateY(-50%);
-      z-index: 0;
-    }
-
-    .welcome-tour-modal .modal-header .progress-fill {
-      height: 100%;
-      background-color: var(--savant-primary-green);
-      width: 0%;
-      transition: width 0.3s ease-in-out;
-    }
-
-    .welcome-tour-modal .modal-header .step-indicator {
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      background-color: var(--savant-light-gray);
-      color: var(--savant-text-dark);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-weight: 600;
-      font-size: 0.9rem;
-      z-index: 1;
-      transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-    }
-
-    .welcome-tour-modal .modal-header .step-indicator.active {
-      background-color: var(--savant-primary-green);
-      color: white;
-    }
-
-    .welcome-tour-modal .modal-header h5 {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--savant-text-dark);
-      margin-bottom: 0;
-    }
-
-    .welcome-tour-modal .modal-body {
-      padding: 1rem 1.5rem;
-      text-align: center;
-    }
-
-    .welcome-tour-modal .modal-body p {
-      font-size: 0.9rem;
-      line-height: 1.5;
-      color: var(--savant-text-light);
-    }
-
-    .welcome-tour-modal .modal-footer {
-      border-top: none;
-      padding: 0.5rem 1.5rem 1rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .welcome-tour-modal .modal-footer .btn {
-      border-radius: 20px;
-      padding: 6px 18px;
-      font-weight: 500;
-      font-size: 0.85rem;
-    }
-
-    .welcome-tour-modal .modal-footer .btn-secondary {
-      background-color: var(--savant-light-gray);
-      color: var(--savant-text-dark);
-      border: none;
-    }
-
-    .welcome-tour-modal .modal-footer .btn-primary {
-      background-color: var(--savant-primary-green);
-      border: none;
-    }
-
-    .tour-highlight {
-      position: relative;
-      z-index: 1052;
-      border: 3px solid var(--savant-highlight-light-green);
-      border-radius: 15px;
-      transition: all 0.3s ease-in-out;
-      box-shadow: 0 0 15px var(--savant-highlight-light-green);
-    }
-
-    .tour-highlight.highlight-circle {
-      border-radius: 50%;
-    }
-
-    /* Dark Mode Styles */
-    .dark-mode-logo {
-      display: none;
-    }
-
-    .dark-mode .light-mode-logo {
-      display: none;
-    }
-
-    .dark-mode .dark-mode-logo {
-      display: block;
-    }
-
-    body.dark-mode {
-      background-color: #121212;
-      color: #EAEAEA;
-    }
-
-    .dark-mode .sidebar {
-      background-color: #1a1a1a;
-      border-right: 1px solid #2c2c2c;
-    }
-
-    .dark-mode .header,
-    .dark-mode .user-info-card,
-    .dark-mode .progress-steps,
-    .dark-mode .card,
-    .dark-mode .add-card,
-    .dark-mode .chat-container,
-    .dark-mode #full-screen-chat,
-    .dark-mode .chat-footer-fullscreen {
-      background-color: #1e1e1e;
-      color: #EAEAEA;
-      border: 1px solid #2c2c2c;
-    }
-
-    .dark-mode .modal-content {
-      background-color: #1e1e1e;
-    }
-
-    .dark-mode .header {
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    }
-
-    .dark-mode .header-title,
-    .dark-mode .profile-name,
-    .dark-mode .card-title,
-    .dark-mode .step-circle,
-    .dark-mode .user-status .me-3,
-    .dark-mode .chat-title-fullscreen {
-      color: #EAEAEA !important;
-    }
-
-    .dark-mode .welcome-tour-modal .modal-header h5 {
-      color: black !important;
-    }
-
-    .dark-mode .header-date-mobile {
-      color: #EAEAEA;
-    }
-
-    .dark-mode .contact-info,
-    .dark-mode .step-label,
-    .dark-mode .card-text,
-    .dark-mode .text-muted {
-      color: #B0B0B0 !important;
-    }
-
-    .dark-mode .social-links a {
-      color: #EAEAEA;
-    }
-
-    .dark-mode .social-links a:hover i {
-      color: var(--savant-highlight-light-green);
-    }
-
-    .dark-mode .sidebar .nav-link.active,
-    .dark-mode .sidebar .nav-link:hover {
-      background-color: #00332c;
-    }
-
-    .dark-mode .step-circle {
-      background-color: #333;
-    }
-
-    .dark-mode .step-circle.active {
-      background-color: var(--savant-primary-green);
     }
 
     @media (max-width: 992px) {
       body {
-        padding-top: 60px;
-        padding-bottom: 50px;
         overflow: auto;
-      }
-
-      .main-wrapper {
-        flex-direction: column;
-        height: auto;
+        padding-bottom: 60px;
       }
 
       .content-area {
-        height: auto;
-        overflow-y: visible;
         margin-left: 0;
-      }
-
-      .header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 1030;
-        height: 60px;
-      }
-
-      .header-title {
-        display: none;
-      }
-
-      .main-content {
-        padding-top: 15px;
       }
 
       .sidebar {
@@ -1002,41 +448,22 @@
         overflow-y: hidden;
       }
 
-      .sidebar:hover {
-        width: 100%;
-      }
-
       .sidebar .logo,
-      .sidebar .profile-section,
       .sidebar .footer-text {
         display: none;
       }
 
       .sidebar .nav {
-        display: flex;
         flex-direction: row;
-        align-items: center;
-        height: 100%;
-        width: 100%;
         justify-content: space-around;
+        width: 100%;
       }
 
-      .sidebar .nav-link {
-        flex: 1;
-        justify-content: center;
-        align-items: center;
-        padding: 0 5px;
-        gap: 0;
-        height: 100%;
+      .sidebar .nav-link span {
+        display: none;
       }
 
-      .sidebar .nav-link i {
-        font-size: 1.5rem;
-        margin-bottom: 0;
-      }
-
-      .sidebar .nav-link span,
-      .sidebar:hover .nav-link span {
+      .header-title {
         display: none;
       }
 
@@ -1049,77 +476,66 @@
         bottom: 80px;
         right: 85px;
       }
-
-      .chat-container {
-        display: none !important;
-      }
     }
   </style>
 </head>
 
-<body class="">
+<body>
   <div class="main-wrapper">
-    <aside class="sidebar d-flex flex-column">
+    <aside class="sidebar">
       <div class="logo">SAVANT</div>
       <nav class="nav flex-column">
         <a class="nav-link active" href="#"><i class="bi bi-house-door-fill"></i><span>Dashboard</span></a>
-        <a class="nav-link" href="booking.html"><i class="bi bi-calendar-check"></i><span>Book
-            Consultation</span></a>
-        <a class="nav-link" href="statement.html"><i class="bi bi-receipt"></i><span>Statement of
-            Account</span></a>
+        <a class="nav-link" href="booking.html"><i class="bi bi-calendar-check"></i><span>Book Consultation</span></a>
+        <a class="nav-link" href="statement.html"><i class="bi bi-receipt"></i><span>Statement of Account</span></a>
         <a class="nav-link" href="documents.html"><i class="bi bi-file-earmark-text"></i><span>Documents</span></a>
         <a class="nav-link" href="forms.html"><i class="bi bi-journal-text"></i><span>Forms</span></a>
         <a class="nav-link" href="notifications.html"><i class="bi bi-bell"></i><span>Notifications</span></a>
         <a class="nav-link" href="settings.html"><i class="bi bi-gear"></i><span>Settings</span></a>
         <a class="nav-link" href="profile.html"><i class="bi bi-person-circle"></i><span>Profile</span></a>
       </nav>
-      <div class="mt-auto footer-text">
-        &copy; 2026 SAVANT
-      </div>
+      <div class="footer-text mt-auto">&copy; 2026 SAVANT</div>
     </aside>
+
     <div class="content-area">
       <div class="header">
         <div class="header-brand d-flex align-items-center">
           <span class="header-title">Savant-International Student Mobility</span>
         </div>
 
-        <div class="header-date-mobile d-lg-none">
-          Current Date
+        <div class="header-date-mobile d-lg-none" id="mobileDate">
         </div>
 
         <div class="user-status d-flex align-items-center gap-2">
-          <div class="me-3 d-none d-lg-block" style="font-weight: 500;">Current Date</div>
+          <div class="me-3 d-none d-lg-block" style="font-weight: 500;" id="desktopDate">
+          </div>
           <button class="tour-help-btn" id="tourToggleButton"><i class="bi bi-question-circle"></i></button>
-          <a href="#" class="btn btn-link power-btn" data-bs-toggle="modal" data-bs-target="#logoutModal"><i
-              class="bi bi-power"></i></a>
+          <a href="#" class="btn btn-link power-btn" data-bs-toggle="modal" data-bs-target="#logoutModal">
+            <i class="bi bi-power"></i>
+          </a>
           <span class="badge">User</span>
         </div>
       </div>
+
       <main class="main-content">
         <div class="row g-4 mb-4">
           <div class="col-12 col-lg-7">
-            <div class="user-info-card h-100 d-flex flex-column justify-content-between">
-              <div>
-                <div class="profile-info d-flex align-items-center gap-3">
-                  <div class="profile-display-area" id="dashboardProfileImageContainer">
-                    <i class="bi bi-person-circle profile-icon"></i>
-                  </div>
-                  <span class="profile-name" id="dashboardProfileName">FIRST NAME, LAST NAME</span>
+            <div class="user-info-card h-100">
+              <div class="profile-info d-flex align-items-center gap-3">
+                <div class="profile-display-area">
+                  <i class="bi bi-person-circle"></i>
                 </div>
-                <div class="social-links mt-3" id="dashboardSocialLinks"></div>
-                <div class="contact-info mt-3">
-                  <div id="dashboardContactNumber">(+63) 987 654 3210</div>
-                  <div id="dashboardBirthday">Birthday: MM/DD/YYYY</div>
-                </div>
+                <span class="profile-name">FIRST NAME, LAST NAME</span>
+              </div>
+              <div class="contact-info mt-3">
+                <div>(+63) 987 654 3210</div>
+                <div>Birthday: MM/DD/YYYY</div>
               </div>
             </div>
           </div>
           <div class="col-12 col-lg-5">
-            <div class="quick-actions-card h-100 d-flex flex-column justify-content-center">
-              <img src="img/flogo.png" alt="SAVANT Logo" class="logo-only-img img-fluid light-mode-logo"
-                id="interactive-logo">
-              <img src="img/flogo.png" alt="SAVANT Logo Dark" class="logo-only-img img-fluid dark-mode-logo"
-                id="interactive-logo-dark">
+            <div class="quick-actions-card h-100">
+              <img src="../img/flogo.png" alt="SAVANT Logo" class="logo-only-img img-fluid">
             </div>
           </div>
         </div>
@@ -1127,19 +543,19 @@
         <div class="progress-steps mb-4">
           <div class="step-item">
             <div class="step-circle active">1</div>
-            <div class="step-label">Congrats! you've made your account!</div>
+            <div class="step-label">Account Created</div>
           </div>
           <div class="step-item">
             <div class="step-circle">2</div>
-            <div class="step-label">Profile picture looks great!</div>
+            <div class="step-label">Profile Picture</div>
           </div>
           <div class="step-item">
             <div class="step-circle">3</div>
-            <div class="step-label">Birthday added!</div>
+            <div class="step-label">Birthday Added</div>
           </div>
           <div class="step-item">
             <div class="step-circle">4</div>
-            <div class="step-label">Social links connected!</div>
+            <div class="step-label">Socials Connected</div>
           </div>
         </div>
 
@@ -1160,32 +576,58 @@
 
   <div class="chat-container" id="chatContainer">
     <div class="chat-header d-flex justify-content-between align-items-center" onclick="toggleChat()">
-      <h5 class="chat-modal-title mb-0"><i class="bi bi-chat-dots-fill me-2"></i>Live Chat</h5>
-      <i class="bi bi-x-lg text-white"></i>
+      <h5 class="mb-0"><i class="bi bi-chat-dots-fill me-2"></i>Live Chat</h5>
+      <i class="bi bi-x-lg"></i>
     </div>
-    <div class="chat-body-fullscreen">
+    <div class="chat-body p-3" style="height: 300px; overflow-y: auto; background: #f8f9fa;">
       <div class="text-center text-muted">Savant Support, how may I help you?</div>
     </div>
-    <div class="chat-body"></div>
-    <div class="chat-footer">
+    <div class="chat-footer p-3 border-top">
       <div class="input-group">
-        <input type="text" class="form-control message-input" placeholder="Type a message...">
-        <button class="btn btn-outline-secondary send-button" type="button"><i class="bi bi-send-fill"></i></button>
+        <input type="text" class="form-control" placeholder="Type a message...">
+        <button class="btn btn-outline-secondary"><i class="bi bi-send-fill"></i></button>
       </div>
     </div>
   </div>
 
-  <a href="bookflight.html" class="floating-btn text-decoration-none"><i class="bi bi-plus-lg"></i></a>
+  <a href="bookflight.html" class="floating-btn"><i class="bi bi-plus-lg"></i></a>
   <button class="chat-toggle-btn" onclick="toggleChat()"><i class="bi bi-chat-dots"></i></button>
+
+  <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="logoutModalLabel">Confirm Logout</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Are you sure you want to log out?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <a href="../index.html" class="btn btn-danger">Yes, Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    const initialProfileData = { "firstName": "User", "lastName": "Not Found", "social": {} };
-    const hasSeenTour = true;
+    // Dynamic Date Formatting
+    document.addEventListener('DOMContentLoaded', function () {
+      const options = { month: 'long', day: 'numeric', year: 'numeric' };
+      const today = new Date().toLocaleDateString('en-US', options);
+
+      const dDate = document.getElementById('desktopDate');
+      const mDate = document.getElementById('mobileDate');
+
+      if (dDate) dDate.textContent = today;
+      if (mDate) mDate.textContent = today;
+    });
 
     function toggleChat() {
-      const popupChatContainer = document.getElementById('chatContainer');
-      popupChatContainer.classList.toggle('show');
+      const chat = document.getElementById('chatContainer');
+      chat.classList.toggle('show');
     }
   </script>
 </body>
