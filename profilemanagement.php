@@ -155,7 +155,7 @@ $admins = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     <div class="content-area">
       <div class="header">
         <div class="header-brand d-flex align-items-center">
-          <span class="header-title">Savant-International Student Mobility | Admin</span>
+          <span class="header-title">Savant-International Student Mobility</span>
         </div>
         <div class="user-status d-flex align-items-center gap-2">
           <div class="me-3 d-none d-lg-block fw-medium"><?php echo date('F j, Y'); ?></div>

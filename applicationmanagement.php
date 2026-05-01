@@ -163,7 +163,7 @@ $applications = $stmt_apps->fetch_all(MYSQLI_ASSOC);
     <div class="content-area">
       <div class="header">
         <div class="header-brand d-flex align-items-center">
-          <span class="header-title">Savant-International Student Mobility | Admin</span>
+          <span class="header-title">Savant-International Student Mobility</span>
         </div>
         <div class="user-status d-flex align-items-center gap-2">
           <div class="me-3 d-none d-lg-block fw-medium"><?php echo date('F j, Y'); ?></div>
@@ -207,7 +207,7 @@ $applications = $stmt_apps->fetch_all(MYSQLI_ASSOC);
                     <?php foreach($applications as $app): ?>
                         <tr>
                           <td class="fw-bold text-muted">APP-<?php echo str_pad($app['id'], 3, '0', STR_PAD_LEFT); ?></td>
-                          <td class="fw-bold"><?php echo htmlspecialchars($app['full_name']); ?></td>
+                          <td class="fw-meduim"><?php echo htmlspecialchars($app['full_name']); ?></td>
                           <td><?php echo htmlspecialchars($app['target_destination']); ?></td>
                           <td><?php echo date('Y-m-d', strtotime($app['created_at'])); ?></td>
                           

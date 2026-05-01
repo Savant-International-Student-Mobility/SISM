@@ -267,7 +267,7 @@ if ($result && $result->num_rows > 0) {
     <div class="content-area">
       <div class="header">
         <div class="header-brand d-flex align-items-center">
-          <span class="header-title">Savant-International Student Mobility | Admin</span>
+          <span class="header-title">Savant-International Student Mobility</span>
         </div>
 
         <div class="user-remarks d-flex align-items-center gap-2">
