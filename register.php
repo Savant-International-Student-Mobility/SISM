@@ -1,44 +1,43 @@
 <?php
 session_start();
-require_once 'db.php';
+require 'db.php'; // Kinukuha ang database connection
+$msg = '';
 
-$error = '';
-$success = '';
+// Kapag pinindot ang CREATE ACCOUNT button
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['register_btn'])) {
+    $firstname = trim($_POST['firstname']);
+    $lastname = trim($_POST['lastname']);
+    $email = trim($_POST['email']);
+    $phone = trim($_POST['phone']);
+    $password = $_POST['password'];
+    $confirm_password = $_POST['confirm_password'];
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Nilagyan natin ng try-catch para saluhin ang anumang database error
-    try {
-        $first_name = $_POST['first_name'];
-        $last_name = $_POST['last_name'];
-        $email = $_POST['email'];
-        $phone = $_POST['phone'];
-        $password = $_POST['password'];
-        $confirm_password = $_POST['confirm_password'];
-
-        if ($password !== $confirm_password) {
-            $error = "Passwords do not match!";
+    // 1. Check kung magkaparehas ang password
+    if ($password !== $confirm_password) {
+        $msg = "<div class='alert alert-danger shadow-sm'>Passwords do not match!</div>";
+    } else {
+        // 2. Check kung nagamit na ang email na ito
+        $stmt = $conn->prepare("SELECT id FROM users WHERE email = ?");
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $stmt->store_result();
+        
+        if ($stmt->num_rows > 0) {
+            $msg = "<div class='alert alert-warning shadow-sm'>Email is already registered! <a href='login.php' class='alert-link'>Login here</a></div>";
         } else {
-            // Check if email already exists
-            $stmt = $conn->prepare("SELECT id FROM users WHERE email = ?");
-            $stmt->execute([$email]);
-            if ($stmt->rowCount() > 0) {
-                $error = "Email is already registered!";
+            // 3. I-encrypt/Hash ang password para secured sa database
+            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+            
+            // 4. I-save ang data sa database
+            $insert = $conn->prepare("INSERT INTO users (firstname, lastname, email, phone, password) VALUES (?, ?, ?, ?, ?)");
+            $insert->bind_param("sssss", $firstname, $lastname, $email, $phone, $hashed_password);
+            
+            if ($insert->execute()) {
+                $msg = "<div class='alert alert-success shadow-sm'>Registration successful! You can now <a href='login.php' class='alert-link'>Login</a>.</div>";
             } else {
-                // Hash the password for security
-                $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-                
-                // Insert new user
-                $insert = $conn->prepare("INSERT INTO users (first_name, last_name, email, phone, password) VALUES (?, ?, ?, ?, ?)");
-                if ($insert->execute([$first_name, $last_name, $email, $phone, $hashed_password])) {
-                    $success = "Registration successful! You can now login.";
-                } else {
-                    $error = "Something went wrong. Please try again.";
-                }
+                $msg = "<div class='alert alert-danger shadow-sm'>Something went wrong. Please try again.</div>";
             }
         }
-    } catch (PDOException $e) {
-        // DITO NATIN MAKIKITA KUNG MAY MALI SA DATABASE MO
-        $error = "Database Error: " . $e->getMessage();
     }
 }
 ?>
@@ -52,16 +51,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <title>SAVANT - Register</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --savant-primary-green: #087830;
+      --savant-accent-green: #12aa42;
+      --savant-hover-green: #146c3a;
+    }
+
     * {
       font-family: 'Poppins', sans-serif !important;
     }
 
-    body,
-    html {
+    body, html {
       height: 100%;
       margin: 0;
       overflow-x: hidden;
@@ -100,7 +103,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     .btn-back-circle:hover {
       background: rgba(255, 255, 255, 0.2);
-      color: #087830;
+      color: var(--savant-accent-green);
       transform: scale(1.1);
     }
 
@@ -126,7 +129,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     .btn-register {
-      background-color: #087830;
+      background-color: var(--savant-accent-green);
       border: none;
       padding: 14px;
       font-weight: 600;
@@ -135,7 +138,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     .btn-register:hover {
-      background-color: #146c3a;
+      background-color: var(--savant-hover-green);
       transform: translateY(-2px);
     }
 
@@ -152,11 +155,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         width: 40px;
         height: 40px;
       }
+      .glass-card {
+        padding: 40px 20px;
+      }
     }
   </style>
 </head>
 
 <body>
+  <!-- Na-update: index.html to index.php -->
   <a href="index.php" class="btn-back-circle" title="Go Back">
     <i class="bi bi-chevron-left fs-4"></i>
   </a>
@@ -166,58 +173,63 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="glass-card">
       <div class="row g-5 align-items-center">
         <div class="col-lg-5 text-center d-flex flex-column align-items-center justify-content-center">
-          <img src="img/logo.png" class="brand-logo mx-auto">
+          <img src="img/logo.png" class="brand-logo" style="height: 160px; width: auto;">
           <h1 class="fw-bold mb-2 display-6 w-100">Register Now</h1>
           <p class="mb-0 w-100">
-            <span class="fst-italic small opacity-75">"Please enter the following information"</span>
+            <span class="fst-italic small opacity-75">"Join Savant and unlock global opportunities"</span>
           </p>
         </div>
         <div class="col-lg-7">
           
-          <?php if($error): ?>
-              <div class="alert alert-danger py-2 mb-4 small"><?php echo $error; ?></div>
-          <?php endif; ?>
-          <?php if($success): ?>
-              <div class="alert alert-success py-2 mb-4 small"><?php echo $success; ?></div>
-          <?php endif; ?>
+          <!-- Dito lalabas ang Success / Error message -->
+          <?php echo $msg; ?>
 
+          <!-- Na-update: action="register.php" at method="POST" -->
           <form action="register.php" method="POST">
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label class="small mb-1">First Name</label>
-                <input type="text" name="first_name" class="form-control form-control-glass" placeholder="First name" required>
+                <!-- Na-update: added name="firstname" -->
+                <input type="text" name="firstname" class="form-control form-control-glass" placeholder="First name" required>
               </div>
               <div class="col-md-6 mb-3">
                 <label class="small mb-1">Last Name</label>
-                <input type="text" name="last_name" class="form-control form-control-glass" placeholder="Last name" required>
+                <!-- Na-update: added name="lastname" -->
+                <input type="text" name="lastname" class="form-control form-control-glass" placeholder="Last name" required>
               </div>
             </div>
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label class="small mb-1">Email Address</label>
+                <!-- Na-update: added name="email" -->
                 <input type="email" name="email" class="form-control form-control-glass" placeholder="email@example.com" required>
               </div>
               <div class="col-md-6 mb-3">
                 <label class="small mb-1">Phone Number</label>
+                <!-- Na-update: added name="phone" -->
                 <input type="tel" name="phone" class="form-control form-control-glass" placeholder="+63 9xx xxx xxxx" required>
               </div>
             </div>
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label class="small mb-1">Password</label>
+                <!-- Na-update: added name="password" -->
                 <input type="password" name="password" class="form-control form-control-glass" required>
               </div>
               <div class="col-md-6 mb-4">
                 <label class="small mb-1">Confirm Password</label>
+                <!-- Na-update: added name="confirm_password" -->
                 <input type="password" name="confirm_password" class="form-control form-control-glass" required>
               </div>
             </div>
-            <button type="submit" class="btn btn-register w-100 text-white shadow-sm">
+            
+            <!-- Na-update: added name="register_btn" -->
+            <button type="submit" name="register_btn" class="btn btn-register w-100 text-white shadow-sm">
               CREATE ACCOUNT
             </button>
             <p class="text-center small mt-4 mb-0 text-white-50">
-              Already have an account? <a href="login.php" class="text-white fw-bold text-decoration-none">Login
-                here</a>
+              <!-- Na-update: login.html to login.php -->
+              Already have an account? <a href="login.php" class="text-white fw-bold text-decoration-none">Login here</a>
             </p>
           </form>
         </div>
